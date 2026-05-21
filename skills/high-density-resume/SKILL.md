@@ -64,6 +64,9 @@ When checking interview risk, group fragile claims by severity: high, medium, lo
 - Do not finalize high-density bullets that depend on missing numbers, rankings, ownership scope, or tool details. Use placeholders or conservative wording until the user confirms them.
 - For from-scratch users, show a current-info / missing-facts / possible-resume-direction table before listing follow-up questions.
 - For early-year or low-experience users, mine course labs, coursework, self-learning artifacts, small builds, team micro-tasks, and AI-assisted learning cases before concluding there is not enough experience.
+- For template-based PCB claims, ask what actually changed and whether the board was fabricated, soldered, tested, or used.
+- For "ranking improved" or similar claims, require exact before/after numbers or context before using improvement wording.
+- If a single-experience claim lacks verifiable details, output a risk note recommending exclusion or conservative participation wording.
 
 ## Resource Guide
 

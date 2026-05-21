@@ -51,6 +51,14 @@ Do not treat these as weak by default. Convert them into evidence only when the 
 
 Use when the user sends one project, competition, activity, or internship note.
 
+If the user mentions modifying PCB from a template, ask what actually changed:
+
+- Schematic, layout, component values, package, interface definition, wiring path, or documentation.
+- Which software was used.
+- Whether the board was fabricated, soldered, tested, or used in the final system.
+
+If the user mentions ranking improvement, performance improvement, or "got better", require exact before/after numbers, percentage, range, or rank context before using improvement wording.
+
 Output:
 
 - Evidence unit.
@@ -58,6 +66,7 @@ Output:
 - Conservative bullet.
 - Standard bullet.
 - High-density bullet only if key facts are confirmed. If numbers, ownership scope, tools, or results are missing, provide a high-density draft with placeholders instead of pretending the facts are known.
+- Risk note. If the user cannot provide verifiable details, numbers, or specific modifications, recommend excluding the claim or keeping it as a conservative participation/learning statement.
 
 ## Existing Resume
 
