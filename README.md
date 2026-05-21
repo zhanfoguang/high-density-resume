@@ -77,6 +77,28 @@ python3 tools/install_skill.py --target openclaw
 
 更多安装方式见 [Agent Compatibility](docs/agent-compatibility.md)。
 
+## Release Package
+
+这个 GitHub 仓库保持开源展示和社区协作属性。若需要上传到第三方 Skill 平台，可以在本地生成一个干净的发行包，而不是让平台依赖 GitHub 仓库本身。
+
+```bash
+python3 tools/build_release.py --version 1.0.0
+```
+
+生成内容默认位于：
+
+```text
+dist/high-density-resume-v1.0.0/
+├── high-density-resume-skill-v1.0.0.zip
+├── listing.zh.md
+├── listing.en.md
+├── package-checklist.md
+├── test-report.md
+└── release-notes.md
+```
+
+其中 zip 是可上传平台的 Skill 包，其他文件用于平台介绍页、审核材料和发布记录。平台私有字段、定价、截图、结算信息需要在上传前按目标平台后台要求手动补充。
+
 ## 五步法
 
 | 步骤 | 目标 | 关键动作 | 输出物 |
@@ -120,6 +142,13 @@ python3 tools/install_skill.py --target openclaw
 │   └── full-walkthrough.md
 ├── prompts/
 │   └── resume-coach.md
+├── packaging/
+│   ├── manifest.yaml
+│   ├── listing.zh.md
+│   ├── listing.en.md
+│   ├── package-checklist.md
+│   ├── test-report-template.md
+│   └── release-notes-template.md
 ├── skills/
 │   └── high-density-resume/
 │       ├── SKILL.md
@@ -128,6 +157,7 @@ python3 tools/install_skill.py --target openclaw
 │       ├── references/
 │       └── scripts/
 ├── tools/
+│   ├── build_release.py
 │   ├── evidence_builder.py
 │   └── install_skill.py
 ├── CONTRIBUTING.md

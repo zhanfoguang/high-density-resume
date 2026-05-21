@@ -1,0 +1,39 @@
+id: high-density-resume
+name: High Density Resume
+version: 0.1.0
+author: zhanfoguang
+license: MIT
+homepage: https://github.com/zhanfoguang/high-density-resume
+source: https://github.com/zhanfoguang/high-density-resume
+category: productivity
+tags:
+  - resume
+  - cv
+  - career
+  - writing
+  - ai-agent
+  - skill
+languages:
+  - zh
+  - en
+agents:
+  - Claude Code
+  - Codex
+  - OpenClaw-style agents
+  - SKILL.md-compatible agents
+entrypoint: SKILL.md
+description: >
+  A cross-agent SKILL.md package that turns raw personal experience into
+  high-density, evidence-backed resume bullets using action + tool/method +
+  result evidence units.
+requirements:
+  python: ">=3.10"
+  third_party_dependencies: []
+privacy:
+  data_processing: local
+  network_required: false
+  stores_user_data: false
+commercial_notes: >
+  This generic manifest is provided for release packaging and platform
+  submission preparation. Always adapt fields to the exact requirements of the
+  target marketplace before upload.
