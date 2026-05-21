@@ -5,6 +5,8 @@
 
 高密度个人识别型简历构建法：用证据链写简历，而不是用套话堆经历。
 
+同时也是一个跨 agent 的 `SKILL.md` 包，可用于 Claude Code、Codex、OpenClaw 风格本地 agent，以及任何支持 `SKILL.md` 的工具。
+
 > 简历不是经历列表，而是个人能力结构的压缩证据链。每一条内容都要回答三个问题：我是谁、我能做什么、我和别人有什么不同。
 
 这个项目适合：
@@ -36,7 +38,7 @@ python3 tools/evidence_builder.py --output my-evidence.md
 
 ## Agent Skill
 
-仓库内置了一个可复用的 Codex/agent skill：
+仓库内置了一个可复用的跨 agent skill：
 
 ```text
 skills/high-density-resume/
@@ -49,11 +51,31 @@ skills/high-density-resume/
 - `assets/`：可复制的简历模板和证据单元表。
 - `scripts/`：交互式证据单元生成工具。
 
-可以在 Skills CLI 生态里按仓库路径安装：
+Claude Code 用户级安装：
+
+```bash
+python3 tools/install_skill.py --target claude
+```
+
+Claude Code 项目级安装：
+
+```bash
+python3 tools/install_skill.py --target claude-project --project /path/to/project
+```
+
+Codex / Skills CLI 安装：
 
 ```bash
 npx skills add zhanfoguang/high-density-resume@high-density-resume
 ```
+
+OpenClaw 风格本地目录安装：
+
+```bash
+python3 tools/install_skill.py --target openclaw
+```
+
+更多安装方式见 [Agent Compatibility](docs/agent-compatibility.md)。
 
 ## 五步法
 
@@ -86,6 +108,7 @@ npx skills add zhanfoguang/high-density-resume@high-density-resume
 ├── README.md
 ├── docs/
 │   ├── faq.md
+│   ├── agent-compatibility.md
 │   ├── method.md
 │   └── rubric.md
 ├── templates/
@@ -105,7 +128,8 @@ npx skills add zhanfoguang/high-density-resume@high-density-resume
 │       ├── references/
 │       └── scripts/
 ├── tools/
-│   └── evidence_builder.py
+│   ├── evidence_builder.py
+│   └── install_skill.py
 ├── CONTRIBUTING.md
 └── LICENSE
 ```

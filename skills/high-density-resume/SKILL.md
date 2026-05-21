@@ -9,6 +9,8 @@ Use this skill to turn raw experience into a resume evidence chain. The goal is 
 
 This skill supports English and Chinese resumes. Preserve the user's language unless they ask for translation.
 
+This skill is designed to be portable across SKILL.md-compatible agents. Do not rely on platform-specific commands or hidden context. Use only the files bundled in this skill directory and the user's supplied resume facts.
+
 ## Workflow
 
 1. Extract evidence units.

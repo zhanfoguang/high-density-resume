@@ -2,6 +2,8 @@
 
 欢迎一起完善高密度个人识别型简历构建法。
 
+这个仓库同时维护一份跨 agent 的 `SKILL.md` 包，位置在 `skills/high-density-resume/`。修改方法论时，请同步检查 README、docs、templates 和 skill references 是否一致。
+
 ## 可以贡献什么
 
 - 不同行业的 Before / After 改写案例。
@@ -9,6 +11,7 @@
 - Markdown、Word、LaTeX 简历模板。
 - 针对特定人群的扩展指南，例如学生、转专业、工程、产品、运营、设计、科研。
 - 工具脚本改进。
+- 其他 agent 的安装说明或兼容性修复。
 
 ## 案例提交格式
 
@@ -39,3 +42,11 @@
 - 你在项目中的真实层级。
 
 如果一条表达只是在说“我很强”，但没有证据，建议继续改。
+
+## Skill 兼容性原则
+
+- `skills/high-density-resume/SKILL.md` 保持短入口，只放触发条件、流程和输出规则。
+- 详细方法和案例放到 `skills/high-density-resume/references/`。
+- 可复制模板放到 `skills/high-density-resume/assets/`。
+- 脚本必须无第三方依赖，除非确实必要。
+- 不写只适用于单一 agent 的隐式规则；如果有平台差异，写到 `docs/agent-compatibility.md`。
