@@ -45,6 +45,14 @@ First classify the user input:
 5. Pressure-test.
    For every tool, number, project name, and strong verb, check whether the user can explain the background, action, method, difficulty, and result within a few seconds. Downgrade or delete anything they cannot defend.
 
+When diagnosing an existing resume, include a compact keyword map:
+
+```text
+target keyword -> where it appears -> evidence strength -> missing proof
+```
+
+When checking interview risk, group fragile claims by severity: high, medium, low.
+
 ## Output Rules
 
 - Do not invent facts, numbers, tools, companies, awards, or outcomes.
@@ -53,6 +61,7 @@ First classify the user input:
 - Use conservative wording when the exact number or scope is uncertain.
 - Keep final bullets narrow enough to survive interview questioning.
 - If evidence is weak, ask one focused follow-up before rewriting.
+- Do not finalize high-density bullets that depend on missing numbers, rankings, ownership scope, or tool details. Use placeholders or conservative wording until the user confirms them.
 
 ## Resource Guide
 

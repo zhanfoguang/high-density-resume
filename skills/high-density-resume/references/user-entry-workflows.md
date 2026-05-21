@@ -45,7 +45,7 @@ Output:
 - Follow-up questions.
 - Conservative bullet.
 - Standard bullet.
-- High-density bullet.
+- High-density bullet only if key facts are confirmed. If numbers, ownership scope, tools, or results are missing, provide a high-density draft with placeholders instead of pretending the facts are known.
 
 ## Existing Resume
 
@@ -55,9 +55,10 @@ Do not rewrite first. Diagnose first:
 
 1. Score truthfulness, personal recognition, target-role fit, HR searchability, interview follow-up risk, and scan structure.
 2. Identify strongest evidence, biggest risk, and narrative mismatch.
-3. Ask 5-10 follow-up questions.
-4. Give a revision plan.
-5. Rewrite only the parts that are safe to rewrite with available facts.
+3. Add a compact keyword map: target keyword -> resume location -> evidence strength -> missing proof.
+4. Ask 5-10 follow-up questions.
+5. Give a revision plan.
+6. Rewrite only the parts that are safe to rewrite with available facts.
 
 ## Dual-AI Review
 

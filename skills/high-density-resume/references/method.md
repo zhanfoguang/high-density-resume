@@ -62,3 +62,11 @@ Randomly point to any tool, number, project, or strong verb. The user must be ab
 - Result or deliverable
 
 If they cannot explain it, downgrade or delete the wording.
+
+When doing an interview risk check, group claims by severity:
+
+| Severity | Meaning | Action |
+| --- | --- | --- |
+| High | Likely to be challenged and weakly supported | Downgrade, delete, or get proof before submitting |
+| Medium | Defensible only with preparation | Keep if the user can prepare a clear explanation |
+| Low | Minor clarification risk | Keep, but prepare details |
