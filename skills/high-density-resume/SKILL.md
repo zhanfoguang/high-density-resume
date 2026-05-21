@@ -13,6 +13,13 @@ This skill is designed to be portable across SKILL.md-compatible agents. Do not 
 
 ## Workflow
 
+First classify the user input:
+
+- Sparse personal info only: use the from-scratch mining workflow.
+- One raw experience: extract evidence units and produce bullet options.
+- Existing resume: diagnose and score before rewriting.
+- Another AI draft or review: use the dual-AI review workflow.
+
 1. Extract evidence units.
    Ask what the user actually did, which tools/methods they used, what changed, and what deliverable exists. Separate `led`, `independently completed`, and `participated/assisted`.
 
@@ -49,6 +56,7 @@ This skill is designed to be portable across SKILL.md-compatible agents. Do not 
 
 ## Resource Guide
 
+- For input classification and from-scratch/resume-review workflows, read `references/user-entry-workflows.md`.
 - For the complete method and pressure-test logic, read `references/method.md`.
 - For rewrite patterns and Before/After examples, read `references/before-after.md`.
 - For multi-model review or second-opinion workflows, read `references/dual-ai-review.md`.

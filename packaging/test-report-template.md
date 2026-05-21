@@ -7,6 +7,7 @@ Date: {{DATE}}
 ## Package Contents
 
 - [ ] `SKILL.md`
+- [ ] `references/user-entry-workflows.md`
 - [ ] `references/method.md`
 - [ ] `references/before-after.md`
 - [ ] `references/dual-ai-review.md`

@@ -32,7 +32,7 @@ manifest.yaml
 LICENSE
 ```
 
-`references/` includes the core method, Before / After patterns, and the optional dual-AI review workflow.
+`references/` includes user-entry workflow routing, the core method, Before / After patterns, and the optional dual-AI review workflow.
 
 ## What To Upload
 

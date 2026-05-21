@@ -14,6 +14,7 @@ Write resumes with evidence chains: turn raw experience into specific, verifiabl
 ## Core Capabilities
 
 - Convert raw experience into `action + tool/method + result` evidence units.
+- Route users into from-scratch mining, single-experience extraction, existing-resume review, or multi-model review workflows.
 - Separate led, independently completed, and participated/assisted scopes.
 - Build a positioning line from professional base, leverage/tooling, and distinctive working habit/background.
 - Rewrite vague resume bullets into interview-defensible bullet points.
