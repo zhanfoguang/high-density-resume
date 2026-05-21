@@ -30,10 +30,22 @@ Do not draft a full resume immediately. Ask:
 Output in this order:
 
 1. Evidence-unit table.
-2. Missing facts and follow-up questions.
-3. Positioning line.
-4. Resume structure.
-5. First draft only after enough facts exist.
+2. Current-info / missing-facts / possible-resume-direction table.
+3. Missing facts and follow-up questions.
+4. Positioning line.
+5. Resume structure.
+6. First draft only after enough facts exist.
+
+For early-year students or users with few obvious projects, mine alternative evidence sources:
+
+- Course experiments and lab reports.
+- Course design or capstone-style assignments.
+- Self-learning notes that produced reusable artifacts.
+- Small hands-on builds, repairs, simulations, or debugging attempts.
+- Club or team micro-tasks such as documentation, equipment checks, meeting notes, or data organization.
+- AI-assisted learning cases where the user can explain the input, process, verification, and output.
+
+Do not treat these as weak by default. Convert them into evidence only when the user can describe a real action, tool/method, and output.
 
 ## Single Experience
 

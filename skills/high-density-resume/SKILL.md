@@ -62,6 +62,8 @@ When checking interview risk, group fragile claims by severity: high, medium, lo
 - Keep final bullets narrow enough to survive interview questioning.
 - If evidence is weak, ask one focused follow-up before rewriting.
 - Do not finalize high-density bullets that depend on missing numbers, rankings, ownership scope, or tool details. Use placeholders or conservative wording until the user confirms them.
+- For from-scratch users, show a current-info / missing-facts / possible-resume-direction table before listing follow-up questions.
+- For early-year or low-experience users, mine course labs, coursework, self-learning artifacts, small builds, team micro-tasks, and AI-assisted learning cases before concluding there is not enough experience.
 
 ## Resource Guide
 
