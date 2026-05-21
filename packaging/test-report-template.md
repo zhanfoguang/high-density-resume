@@ -37,6 +37,18 @@ Date: {{DATE}}
 
 See `test-prompts.md` for the full prompt text.
 
+## Human Eval Summary
+
+Use the repository `evals/scorecard.md` if you run deeper manual evaluations.
+
+| Case | Score | Pass/Fail | Notes |
+| --- | --- | --- | --- |
+| From-scratch mining |  |  |  |
+| Single experience extraction |  |  |  |
+| Existing resume diagnosis |  |  |  |
+| Dual-AI review |  |  |  |
+| Interview follow-up risk |  |  |  |
+
 ## Notes
 
 - The package runs locally.

@@ -47,6 +47,8 @@ Use the extra Markdown files for:
 - Compatibility test report.
 - Release notes.
 
+For deeper model behavior checks, use the repository's `evals/` folder before building a final marketplace package.
+
 ## What To Edit Per Platform
 
 Before uploading, adapt platform-specific fields:
