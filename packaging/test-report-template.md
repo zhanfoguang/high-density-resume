@@ -29,9 +29,13 @@ Date: {{DATE}}
 
 | Agent | Install Method | Prompt | Result |
 | --- | --- | --- | --- |
-| Claude Code | user-level / project-level | Rewrite raw resume experience |  |
-| Codex | Skills CLI / local copy | Rewrite raw resume experience |  |
-| OpenClaw-style agent | local copy | Rewrite raw resume experience |  |
+| Claude Code | user-level / project-level | From-scratch mining prompt |  |
+| Claude Code | user-level / project-level | Existing resume diagnosis prompt |  |
+| Codex | Skills CLI / local copy | Single experience extraction prompt |  |
+| Codex | Skills CLI / local copy | Dual-AI review prompt |  |
+| OpenClaw-style agent | local copy | Interview follow-up risk prompt |  |
+
+See `test-prompts.md` for the full prompt text.
 
 ## Notes
 

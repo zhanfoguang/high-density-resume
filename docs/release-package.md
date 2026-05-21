@@ -16,6 +16,7 @@ dist/high-density-resume-v1.0.0/
 ├── listing.zh.md
 ├── listing.en.md
 ├── package-checklist.md
+├── test-prompts.md
 ├── test-report.md
 └── release-notes.md
 ```
@@ -42,6 +43,7 @@ Use the extra Markdown files for:
 
 - Marketplace description copy.
 - Review checklist.
+- Test prompts.
 - Compatibility test report.
 - Release notes.
 

@@ -28,6 +28,8 @@
 
 进阶用法：如果你会同时使用 GPT、DeepSeek、Claude 等多个模型，可以参考 [双 AI 交叉审稿流程](docs/dual-ai-review-workflow.md)，让一个模型写、另一个模型审，再由你把关真实性、个人识别度、求职方向、HR 搜索率和面试追问风险。
 
+测试用例见 [Test Prompts](examples/test-prompts.md)，可以用来检查 Skill 是否正确处理从零采矿、单段经历拆解、已有简历审查和双 AI 审稿。
+
 也可以直接运行小工具，把经历拆成“动作 + 工具/方法 + 结果”：
 
 ```bash
@@ -145,7 +147,8 @@ dist/high-density-resume-v1.0.0/
 │   └── review-checklist.md
 ├── examples/
 │   ├── before-after.md
-│   └── full-walkthrough.md
+│   ├── full-walkthrough.md
+│   └── test-prompts.md
 ├── prompts/
 │   └── resume-coach.md
 ├── packaging/

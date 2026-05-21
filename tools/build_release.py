@@ -56,6 +56,7 @@ def write_release_files(release_dir: Path, package_dir: Path, version: str) -> N
         "listing.zh.md": (PACKAGING_DIR / "listing.zh.md").read_text(encoding="utf-8"),
         "listing.en.md": (PACKAGING_DIR / "listing.en.md").read_text(encoding="utf-8"),
         "package-checklist.md": (PACKAGING_DIR / "package-checklist.md").read_text(encoding="utf-8"),
+        "test-prompts.md": (PACKAGING_DIR / "test-prompts.md").read_text(encoding="utf-8"),
         "test-report.md": read_template("test-report-template.md", version),
         "release-notes.md": read_template("release-notes-template.md", version),
     }
