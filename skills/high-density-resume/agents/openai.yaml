@@ -1,0 +1,4 @@
+interface:
+  display_name: "High Density Resume"
+  short_description: "Turn raw experience into evidence-chain resume bullets."
+  default_prompt: "Use $high-density-resume to turn my raw experience into high-density, evidence-backed resume content."
