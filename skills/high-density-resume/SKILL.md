@@ -51,5 +51,6 @@ This skill is designed to be portable across SKILL.md-compatible agents. Do not 
 
 - For the complete method and pressure-test logic, read `references/method.md`.
 - For rewrite patterns and Before/After examples, read `references/before-after.md`.
+- For multi-model review or second-opinion workflows, read `references/dual-ai-review.md`.
 - For user-facing templates, copy or adapt files from `assets/`.
 - For an interactive evidence-unit helper, run `scripts/evidence_builder.py`. Use `--lang zh` for Chinese prompts and `--output file.md` to save Markdown.

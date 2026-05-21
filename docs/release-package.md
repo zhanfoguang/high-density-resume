@@ -32,6 +32,8 @@ manifest.yaml
 LICENSE
 ```
 
+`references/` includes the core method, Before / After patterns, and the optional dual-AI review workflow.
+
 ## What To Upload
 
 Upload `high-density-resume-skill-vX.Y.Z.zip` to the target marketplace if it accepts a generic `SKILL.md` package.

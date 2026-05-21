@@ -9,6 +9,7 @@ Date: {{DATE}}
 - [ ] `SKILL.md`
 - [ ] `references/method.md`
 - [ ] `references/before-after.md`
+- [ ] `references/dual-ai-review.md`
 - [ ] `assets/resume-template.md`
 - [ ] `assets/evidence-units.md`
 - [ ] `scripts/evidence_builder.py`

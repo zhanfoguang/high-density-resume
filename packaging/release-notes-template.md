@@ -12,6 +12,7 @@ High Density Resume is a cross-agent `SKILL.md` package for turning raw personal
 - Core `SKILL.md` workflow.
 - Method reference.
 - Before / After rewrite patterns.
+- Optional dual-AI review workflow.
 - Resume and evidence-unit templates.
 - Interactive evidence-unit builder script.
 - Generic marketplace manifest.

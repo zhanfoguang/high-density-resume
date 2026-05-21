@@ -24,6 +24,8 @@
 4. 对照 [完整改写示例](examples/full-walkthrough.md) 和 [Before / After 案例](examples/before-after.md) 删除套话、补足事实。
 5. 用 [评分表](docs/rubric.md) 和 [压力测试清单](templates/review-checklist.md) 做最后一轮删改。
 
+进阶用法：如果你会同时使用 GPT、DeepSeek、Claude 等多个模型，可以参考 [双 AI 交叉审稿流程](docs/dual-ai-review-workflow.md)，让一个模型写、另一个模型审，再由你把关真实性、个人识别度、求职方向、HR 搜索率和面试追问风险。
+
 也可以直接运行小工具，把经历拆成“动作 + 工具/方法 + 结果”：
 
 ```bash
@@ -131,6 +133,7 @@ dist/high-density-resume-v1.0.0/
 ├── docs/
 │   ├── faq.md
 │   ├── agent-compatibility.md
+│   ├── dual-ai-review-workflow.md
 │   ├── method.md
 │   └── rubric.md
 ├── templates/
