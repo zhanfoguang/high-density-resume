@@ -1,5 +1,8 @@
 # High-Density Resume
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Skill](https://img.shields.io/badge/Codex%20Skill-high--density--resume-blue.svg)](skills/high-density-resume/SKILL.md)
+
 高密度个人识别型简历构建法：用证据链写简历，而不是用套话堆经历。
 
 > 简历不是经历列表，而是个人能力结构的压缩证据链。每一条内容都要回答三个问题：我是谁、我能做什么、我和别人有什么不同。
@@ -16,13 +19,19 @@
 1. 先阅读 [方法论](docs/method.md)。
 2. 用 [证据单元表](templates/evidence-units.md) 拆解自己的经历。
 3. 把最硬、最能讲清楚的经历放进 [简历模板](templates/resume-template.md)。
-4. 对照 [改写案例](examples/before-after.md) 删除套话、补足事实。
-5. 用 [压力测试清单](templates/review-checklist.md) 做最后一轮删改。
+4. 对照 [完整改写示例](examples/full-walkthrough.md) 和 [Before / After 案例](examples/before-after.md) 删除套话、补足事实。
+5. 用 [评分表](docs/rubric.md) 和 [压力测试清单](templates/review-checklist.md) 做最后一轮删改。
 
 也可以直接运行小工具，把经历拆成“动作 + 工具/方法 + 结果”：
 
 ```bash
 python3 tools/evidence_builder.py
+```
+
+输出到 Markdown 文件：
+
+```bash
+python3 tools/evidence_builder.py --output my-evidence.md
 ```
 
 ## Agent Skill
@@ -40,10 +49,10 @@ skills/high-density-resume/
 - `assets/`：可复制的简历模板和证据单元表。
 - `scripts/`：交互式证据单元生成工具。
 
-发布到 GitHub 后，可以在 Skills CLI 生态里按仓库路径安装，例如：
+可以在 Skills CLI 生态里按仓库路径安装：
 
 ```bash
-npx skills add <your-github-name>/<repo-name>@high-density-resume
+npx skills add zhanfoguang/high-density-resume@high-density-resume
 ```
 
 ## 五步法
@@ -76,13 +85,16 @@ npx skills add <your-github-name>/<repo-name>@high-density-resume
 .
 ├── README.md
 ├── docs/
-│   └── method.md
+│   ├── faq.md
+│   ├── method.md
+│   └── rubric.md
 ├── templates/
 │   ├── evidence-units.md
 │   ├── resume-template.md
 │   └── review-checklist.md
 ├── examples/
-│   └── before-after.md
+│   ├── before-after.md
+│   └── full-walkthrough.md
 ├── prompts/
 │   └── resume-coach.md
 ├── skills/
@@ -94,7 +106,8 @@ npx skills add <your-github-name>/<repo-name>@high-density-resume
 │       └── scripts/
 ├── tools/
 │   └── evidence_builder.py
-└── CONTRIBUTING.md
+├── CONTRIBUTING.md
+└── LICENSE
 ```
 
 ## 核心原则
@@ -107,17 +120,7 @@ npx skills add <your-github-name>/<repo-name>@high-density-resume
 
 ## 常见问题
 
-**没有量化结果怎么办？**
-
-优先写可验证结果：交付物、规模、周期、工具、对象、约束、前后变化。没有百分比，也可以写“完成了什么”“影响了谁”“解决了哪个具体问题”。
-
-**经历很普通怎么办？**
-
-普通经历也能拆出证据。关键不是把经历夸大，而是把你真实做过的动作说清楚：你用了什么、判断了什么、解决了什么、交付了什么。
-
-**能不能用 AI 写？**
-
-可以用 AI 做提问、拆解、改写和压缩，但不要让 AI 替你编事实。最好的用法是让 AI 追问你，把经历逼回真实细节。
+常见问题已整理到 [FAQ](docs/faq.md)，包括“没有量化结果怎么办”“经历普通怎么写”“AI 能不能帮忙写”等场景。
 
 ## 贡献方式
 
@@ -129,3 +132,7 @@ npx skills add <your-github-name>/<repo-name>@high-density-resume
 - 针对学生、转专业、工程、产品、运营等场景的扩展指南。
 
 提交前请阅读 [贡献指南](CONTRIBUTING.md)。
+
+## License
+
+MIT License. See [LICENSE](LICENSE).

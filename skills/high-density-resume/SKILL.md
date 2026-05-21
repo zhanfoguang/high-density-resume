@@ -1,11 +1,13 @@
 ---
 name: high-density-resume
-description: Transform raw personal experiences into high-density, evidence-backed resume content. Use when helping a user write, rewrite, review, or pressure-test a resume/CV; turn vague bullets into action + tool/method + result evidence units; build a personal positioning line; remove AI-sounding resume cliches; or prepare Markdown resume content and interview-ready bullet points.
+description: Transform raw personal experiences into high-density, evidence-backed resume content. Use when helping a user write, rewrite, review, or pressure-test a resume/CV/resume bullet; turn vague bullets into action + tool/method + result evidence units; build a personal positioning line; remove AI-sounding resume cliches. 中文场景也应触发：写简历、改简历、优化简历、简历润色、挖掘经历亮点、删除套话、构建证据链、准备面试追问。
 ---
 
 # High Density Resume
 
 Use this skill to turn raw experience into a resume evidence chain. The goal is not to make the user sound bigger; it is to make the truth sharper, denser, and easier to verify.
+
+This skill supports English and Chinese resumes. Preserve the user's language unless they ask for translation.
 
 ## Workflow
 
@@ -48,4 +50,4 @@ Use this skill to turn raw experience into a resume evidence chain. The goal is 
 - For the complete method and pressure-test logic, read `references/method.md`.
 - For rewrite patterns and Before/After examples, read `references/before-after.md`.
 - For user-facing templates, copy or adapt files from `assets/`.
-- For an interactive evidence-unit helper, run `scripts/evidence_builder.py`.
+- For an interactive evidence-unit helper, run `scripts/evidence_builder.py`. Use `--lang zh` for Chinese prompts and `--output file.md` to save Markdown.
