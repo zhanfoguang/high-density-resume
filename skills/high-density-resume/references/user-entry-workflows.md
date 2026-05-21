@@ -72,6 +72,15 @@ Output:
 
 Use when the user sends a complete or partial resume.
 
+First check input completeness. If the user asks for resume review but does not paste the resume text, do not score, diagnose, simulate, or rewrite. Ask the user to provide the resume in one of these formats:
+
+- Plain text.
+- Markdown.
+- Sectioned text with headings.
+- Bullet list copied from a resume.
+
+You may show the diagnosis template that will be used next, but do not invent content.
+
 Do not rewrite first. Diagnose first:
 
 1. Score truthfulness, personal recognition, target-role fit, HR searchability, interview follow-up risk, and scan structure.

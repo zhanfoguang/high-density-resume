@@ -67,6 +67,7 @@ When checking interview risk, group fragile claims by severity: high, medium, lo
 - For template-based PCB claims, ask what actually changed and whether the board was fabricated, soldered, tested, or used.
 - For "ranking improved" or similar claims, require exact before/after numbers or context before using improvement wording.
 - If a single-experience claim lacks verifiable details, output a risk note recommending exclusion or conservative participation wording.
+- For existing-resume review, check that resume text is actually provided. If missing, ask for plain text, Markdown, sectioned text, or copied bullets; do not simulate a diagnosis.
 
 ## Resource Guide
 
