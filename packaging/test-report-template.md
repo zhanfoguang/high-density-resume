@@ -49,6 +49,13 @@ Use the repository `evals/scorecard.md` if you run deeper manual evaluations.
 | Dual-AI review |  |  |  |
 | Interview follow-up risk |  |  |  |
 
+## HR/ATS Checks
+
+- [ ] Target keywords appear in evidence bullets, not only in the skills section.
+- [ ] Template is conservative and machine-readable.
+- [ ] Core information is not stored only in images.
+- [ ] The resume states what value the candidate can bring to the target role.
+
 ## Notes
 
 - The package runs locally.

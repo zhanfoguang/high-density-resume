@@ -40,7 +40,7 @@ First classify the user input:
    Remove claims like "improved ability", "learned knowledge", "responsible and proactive", "familiar with", or "deep understanding" unless backed by evidence.
 
 4. Arrange the resume.
-   Put the strongest, most interview-defensible evidence in the first third. Group more than four experiences into scan-friendly sections such as technical practice, business practice, open source, or community work.
+   Use conservative, ATS-friendly structure. Put the strongest, most interview-defensible evidence in the first third. Group more than four experiences into scan-friendly sections such as technical practice, business practice, open source, or community work.
 
 5. Pressure-test.
    For every tool, number, project name, and strong verb, check whether the user can explain the background, action, method, difficulty, and result within a few seconds. Downgrade or delete anything they cannot defend.
@@ -49,6 +49,12 @@ When diagnosing an existing resume, include a compact keyword map:
 
 ```text
 target keyword -> where it appears -> evidence strength -> missing proof
+```
+
+Also check enterprise value:
+
+```text
+experience -> target-role value -> evidence -> scarcity/recognition signal
 ```
 
 When checking interview risk, group fragile claims by severity: high, medium, low.
@@ -71,9 +77,12 @@ For each interview-risk item, include the claim, likely follow-up question, miss
 - If a single-experience claim lacks verifiable details, output a risk note recommending exclusion or conservative participation wording.
 - For existing-resume review, check that resume text is actually provided. If missing, ask for plain text, Markdown, sectioned text, or copied bullets; do not simulate a diagnosis.
 - For interview-risk checks, also require resume text or bullets. If missing, ask for content and do not construct a sample unless the user explicitly asks for a simulation.
+- Do not encourage visual-template novelty. Use familiar, machine-readable resume structure; make the content distinctive, not the layout.
+- Treat HR searchability as real keyword distribution: target keywords should appear naturally in evidence bullets, not only in a keyword list.
 
 ## Resource Guide
 
+- For HR/ATS screening, conservative templates, and enterprise-value checks, read `../../docs/hr-machine-screening.md` if available in the repository context.
 - For input classification and from-scratch/resume-review workflows, read `references/user-entry-workflows.md`.
 - For the complete method and pressure-test logic, read `references/method.md`.
 - For rewrite patterns and Before/After examples, read `references/before-after.md`.

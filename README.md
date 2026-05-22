@@ -19,10 +19,11 @@
 ## 快速开始
 
 1. 先阅读 [方法论](docs/method.md)。
-2. 用 [证据单元表](templates/evidence-units.md) 拆解自己的经历。
-3. 把最硬、最能讲清楚的经历放进 [简历模板](templates/resume-template.md)。
-4. 对照 [完整改写示例](examples/full-walkthrough.md) 和 [Before / After 案例](examples/before-after.md) 删除套话、补足事实。
-5. 用 [评分表](docs/rubric.md) 和 [压力测试清单](templates/review-checklist.md) 做最后一轮删改。
+2. 参考 [HR 与机器筛选友好规则](docs/hr-machine-screening.md)，确认模板保守、关键词真实、企业价值清楚。
+3. 用 [证据单元表](templates/evidence-units.md) 拆解自己的经历。
+4. 把最硬、最能讲清楚的经历放进 [简历模板](templates/resume-template.md) 或 [ATS 友好模板](templates/ats-friendly-resume-template.md)。
+5. 对照 [完整改写示例](examples/full-walkthrough.md) 和 [Before / After 案例](examples/before-after.md) 删除套话、补足事实。
+6. 用 [评分表](docs/rubric.md) 和 [压力测试清单](templates/review-checklist.md) 做最后一轮删改。
 
 如果你有看似“不相关”但能体现个人特质的经历，可以参考 [Distinctive Signals](examples/distinctive-signals.md)，判断它是否能证明社交信任、助人倾向、团队融入或跨领域迁移。
 
@@ -142,10 +143,12 @@ dist/high-density-resume-v1.0.0/
 │   ├── faq.md
 │   ├── agent-compatibility.md
 │   ├── dual-ai-review-workflow.md
+│   ├── hr-machine-screening.md
 │   ├── method.md
 │   ├── rubric.md
 │   └── user-entry-workflows.md
 ├── templates/
+│   ├── ats-friendly-resume-template.md
 │   ├── evidence-units.md
 │   ├── resume-template.md
 │   └── review-checklist.md
