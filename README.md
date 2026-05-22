@@ -3,75 +3,36 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Skill](https://img.shields.io/badge/Codex%20Skill-high--density--resume-blue.svg)](skills/high-density-resume/SKILL.md)
 
-高密度个人识别型简历构建法：用证据链写简历，而不是用套话堆经历。
-
-同时也是一个跨 agent 的 `SKILL.md` 包，可用于 Claude Code、Codex、OpenClaw 风格本地 agent，以及任何支持 `SKILL.md` 的工具。
+高密度个人识别型简历构建法：用证据链写简历，而不是用套话堆经历。它也是一个跨 agent 的 `SKILL.md` 包，可用于 Claude Code、Codex、OpenClaw 风格本地 agent，以及任何支持 `SKILL.md` 的工具。
 
 > 简历不是经历列表，而是个人能力结构的压缩证据链。每一条内容都要回答三个问题：我是谁、我能做什么、我和别人有什么不同。
 
-这个项目适合：
+## What It Does
 
-- 学生、转专业求职者、实习求职者，希望把零散经历写得更像“能干活的人”。
-- 工程、技术、产品、运营、商业实践类经历较多，但不知道怎么挖亮点的人。
-- 想摆脱 AI 套话简历，写出真实、可追问、可验证表达的人。
-- 想用 Markdown、Word、LaTeX 或其他模板重构简历的人。
+- 把零散经历拆成 `动作 + 工具/方法 + 结果` 的证据单元。
+- 区分主导、独立完成、参与协助，避免把简历写虚。
+- 同时照顾 HR 扫读、ATS/机器关键词、岗位价值和面试追问。
+- 支持从零采矿、单段经历拆解、已有简历审查、双 AI 交叉审稿和面试风险检查。
 
-## 快速开始
+## Start Here
 
-1. 先阅读 [方法论](docs/method.md)。
-2. 参考 [HR 与机器筛选友好规则](docs/hr-machine-screening.md)，确认模板保守、关键词真实、企业价值清楚。
-3. 用 [证据单元表](templates/evidence-units.md) 拆解自己的经历。
-4. 把最硬、最能讲清楚的经历放进 [简历模板](templates/resume-template.md) 或 [ATS 友好模板](templates/ats-friendly-resume-template.md)。
-5. 对照 [完整改写示例](examples/full-walkthrough.md) 和 [Before / After 案例](examples/before-after.md) 删除套话、补足事实。
-6. 用 [评分表](docs/rubric.md) 和 [压力测试清单](templates/review-checklist.md) 做最后一轮删改。
+| 你现在有什么 | 先看这里 |
+| --- | --- |
+| 不知道怎么开始 | [用户入口分流工作流](docs/user-entry-workflows.md) |
+| 想理解完整方法 | [方法论](docs/method.md) |
+| 想直接填模板 | [简历模板](templates/resume-template.md) / [ATS 友好模板](templates/ats-friendly-resume-template.md) |
+| 想看改写效果 | [完整改写示例](examples/full-walkthrough.md) / [Before & After](examples/before-after.md) |
+| 想检查机器筛选和 HR 扫读 | [HR 与机器筛选友好规则](docs/hr-machine-screening.md) |
+| 想评估当前简历 | [评分表](docs/rubric.md) / [压力测试清单](templates/review-checklist.md) |
 
-如果你有看似“不相关”但能体现个人特质的经历，可以参考 [Distinctive Signals](examples/distinctive-signals.md)，判断它是否能证明社交信任、助人倾向、团队融入或跨领域迁移。
+如果你有看似“不相关”但能体现个人特质的经历，参考 [Distinctive Signals](examples/distinctive-signals.md)，判断它是否能证明社交信任、助人倾向、团队融入或跨领域迁移。
 
-如果你不知道从哪里开始，先看 [用户入口分流工作流](docs/user-entry-workflows.md)：没简历的人走“从零采矿”，有简历的人走“诊断与重构”，只有一段经历的人走“证据单元拆解”。
-
-进阶用法：如果你会同时使用 GPT、DeepSeek、Claude 等多个模型，可以参考 [双 AI 交叉审稿流程](docs/dual-ai-review-workflow.md)，让一个模型写、另一个模型审，再由你把关真实性、个人识别度、求职方向、HR 搜索率和面试追问风险。
-
-测试用例见 [Test Prompts](examples/test-prompts.md)，可以用来检查 Skill 是否正确处理从零采矿、单段经历拆解、已有简历审查和双 AI 审稿。
-
-更系统的人工评测见 [evals](evals/README.md)，用于记录不同 agent/model 的实际输出、评分和需要回流到 Skill 的问题。
-
-也可以直接运行小工具，把经历拆成“动作 + 工具/方法 + 结果”：
-
-```bash
-python3 tools/evidence_builder.py
-```
-
-输出到 Markdown 文件：
-
-```bash
-python3 tools/evidence_builder.py --output my-evidence.md
-```
-
-## Agent Skill
-
-仓库内置了一个可复用的跨 agent skill：
-
-```text
-skills/high-density-resume/
-```
-
-它采用渐进加载结构：
-
-- `SKILL.md`：短入口，只保留触发条件、工作流和输出规则。
-- `references/`：完整方法论和 Before / After 改写模式。
-- `assets/`：可复制的简历模板和证据单元表。
-- `scripts/`：交互式证据单元生成工具。
+## Use As An Agent Skill
 
 Claude Code 用户级安装：
 
 ```bash
 python3 tools/install_skill.py --target claude
-```
-
-Claude Code 项目级安装：
-
-```bash
-python3 tools/install_skill.py --target claude-project --project /path/to/project
 ```
 
 Codex / Skills CLI 安装：
@@ -80,17 +41,31 @@ Codex / Skills CLI 安装：
 npx skills add zhanfoguang/high-density-resume@high-density-resume
 ```
 
+Claude Code 项目级安装：
+
+```bash
+python3 tools/install_skill.py --target claude-project --project /path/to/project
+```
+
 OpenClaw 风格本地目录安装：
 
 ```bash
 python3 tools/install_skill.py --target openclaw
 ```
 
-更多安装方式见 [Agent Compatibility](docs/agent-compatibility.md)。
+更多安装方式见 [Agent Compatibility](docs/agent-compatibility.md)。测试用例见 [Test Prompts](examples/test-prompts.md)，系统评测见 [evals](evals/README.md)。
+
+## CLI Helper
+
+把经历拆成“动作 + 工具/方法 + 结果”：
+
+```bash
+python3 tools/evidence_builder.py --output my-evidence.md
+```
 
 ## Release Package
 
-这个 GitHub 仓库保持开源展示和社区协作属性。若需要上传到第三方 Skill 平台，可以在本地生成一个干净的发行包，而不是让平台依赖 GitHub 仓库本身。
+GitHub 仓库保持开源展示和社区协作属性；上传第三方 Skill 平台时，使用本地生成的干净发行包。
 
 ```bash
 python3 tools/build_release.py --version 1.0.0
