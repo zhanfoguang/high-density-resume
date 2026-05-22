@@ -28,7 +28,7 @@ The user should control:
 Use this prompt when sending a version to another AI or another review pass:
 
 ```text
-Review this resume from five angles: truthfulness, personal recognition, target-role fit, HR searchability, and interview follow-up risk. Mark each suggestion as must-change, optional, or needs more facts. Do not rewrite everything by default.
+Review this resume from five angles: truthfulness, personal recognition, target-role fit, HR searchability, and interview follow-up risk. Classify each suggestion as accept, reject, partially accept, or needs facts. Do not rewrite everything by default.
 ```
 
 ## Decision Labels
@@ -39,6 +39,12 @@ Review this resume from five angles: truthfulness, personal recognition, target-
 | Reject | Makes the resume generic, less true, or less distinctive |
 | Partially accept | Direction is useful, wording or intensity needs adjustment |
 | Needs facts | Could be useful but current evidence is insufficient |
+
+For every risky suggestion, add an interview follow-up scenario:
+
+```text
+If interviewer asks "...", can the candidate answer with facts?
+```
 
 ## Accept More Often
 
@@ -55,6 +61,26 @@ Review this resume from five angles: truthfulness, personal recognition, target-
 - Deleting the strongest engineering or delivery evidence just to be shorter.
 - Adding concepts the user cannot explain in an interview.
 - Flattening the summary into a template sentence.
+
+## Distinctiveness-Retention Check
+
+Before accepting a suggestion to delete an unusual but truthful experience, check:
+
+- Does it create a memorable signal?
+- Can it support cross-domain transfer, craft, precision, communication, or judgment?
+- Can it be moved to a lower-priority section instead of deleted?
+- Would deleting it make the candidate more generic?
+- Can the user explain it without distracting from the target role?
+
+## Integrity Red Lines
+
+Automatically reject and warn when a suggestion:
+
+- Turns `participated/assisted` into `led`.
+- Turns a template-based modification into original design.
+- Adds "proficient", "expert", "skilled", or "deep understanding" without project evidence.
+- Uses "significant improvement", "greatly improved", or similar wording without exact before/after facts.
+- Adds concepts, tools, awards, rankings, or outcomes the user did not provide.
 
 ## Summary Rule
 
