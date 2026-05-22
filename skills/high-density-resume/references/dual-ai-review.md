@@ -67,10 +67,18 @@ If interviewer asks "...", can the candidate answer with facts?
 Before accepting a suggestion to delete an unusual but truthful experience, check:
 
 - Does it create a memorable signal?
-- Can it support cross-domain transfer, craft, precision, communication, or judgment?
+- Can it support cross-domain transfer, craft, precision, communication, judgment, social trust, helping behavior, or team integration?
 - Can it be moved to a lower-priority section instead of deleted?
 - Would deleting it make the candidate more generic?
 - Can the user explain it without distracting from the target role?
+
+Some unusual experiences are valuable because they help the candidate build trust in new groups. For example, basic acupuncture practice may not be a core manufacturing skill, but if the user has repeatedly used it in campus teams to help classmates or teachers with basic relaxation support, it can signal memorability, warmth, offline relationship-building, and team integration. Keep this kind of signal low-priority and conservative. Avoid medical claims such as "treat", "cure", or guaranteed improvement.
+
+Safer wording:
+
+```text
+Basic acupuncture theory and practice; used in campus team settings to provide basic relaxation support and build trust in collaborative environments.
+```
 
 ## Integrity Red Lines
 

@@ -24,6 +24,8 @@
 4. 对照 [完整改写示例](examples/full-walkthrough.md) 和 [Before / After 案例](examples/before-after.md) 删除套话、补足事实。
 5. 用 [评分表](docs/rubric.md) 和 [压力测试清单](templates/review-checklist.md) 做最后一轮删改。
 
+如果你有看似“不相关”但能体现个人特质的经历，可以参考 [Distinctive Signals](examples/distinctive-signals.md)，判断它是否能证明社交信任、助人倾向、团队融入或跨领域迁移。
+
 如果你不知道从哪里开始，先看 [用户入口分流工作流](docs/user-entry-workflows.md)：没简历的人走“从零采矿”，有简历的人走“诊断与重构”，只有一段经历的人走“证据单元拆解”。
 
 进阶用法：如果你会同时使用 GPT、DeepSeek、Claude 等多个模型，可以参考 [双 AI 交叉审稿流程](docs/dual-ai-review-workflow.md)，让一个模型写、另一个模型审，再由你把关真实性、个人识别度、求职方向、HR 搜索率和面试追问风险。
@@ -149,6 +151,7 @@ dist/high-density-resume-v1.0.0/
 │   └── review-checklist.md
 ├── examples/
 │   ├── before-after.md
+│   ├── distinctive-signals.md
 │   ├── full-walkthrough.md
 │   └── test-prompts.md
 ├── evals/

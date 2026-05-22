@@ -19,6 +19,7 @@ Write resumes with evidence chains: turn raw experience into specific, verifiabl
 - Build a positioning line from professional base, leverage/tooling, and distinctive working habit/background.
 - Rewrite vague resume bullets into interview-defensible bullet points.
 - Support an optional dual-AI review workflow where one model drafts, another reviews, and the user controls truthfulness, personal recognition, target-role fit, HR searchability, and interview risk.
+- Evaluate unusual but truthful experiences that may deserve low-priority retention because they signal social trust, helping behavior, team integration, or cross-domain transfer.
 - Provide templates, evidence-unit tables, Before/After examples, and pressure-test checklists.
 
 ## How To Use
