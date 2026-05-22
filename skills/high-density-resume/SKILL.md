@@ -53,6 +53,8 @@ target keyword -> where it appears -> evidence strength -> missing proof
 
 When checking interview risk, group fragile claims by severity: high, medium, low.
 
+For each interview-risk item, include the claim, likely follow-up question, missing evidence, and delete/downgrade condition.
+
 ## Output Rules
 
 - Do not invent facts, numbers, tools, companies, awards, or outcomes.
@@ -68,6 +70,7 @@ When checking interview risk, group fragile claims by severity: high, medium, lo
 - For "ranking improved" or similar claims, require exact before/after numbers or context before using improvement wording.
 - If a single-experience claim lacks verifiable details, output a risk note recommending exclusion or conservative participation wording.
 - For existing-resume review, check that resume text is actually provided. If missing, ask for plain text, Markdown, sectioned text, or copied bullets; do not simulate a diagnosis.
+- For interview-risk checks, also require resume text or bullets. If missing, ask for content and do not construct a sample unless the user explicitly asks for a simulation.
 
 ## Resource Guide
 

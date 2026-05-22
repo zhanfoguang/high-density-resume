@@ -70,3 +70,20 @@ When doing an interview risk check, group claims by severity:
 | High | Likely to be challenged and weakly supported | Downgrade, delete, or get proof before submitting |
 | Medium | Defensible only with preparation | Keep if the user can prepare a clear explanation |
 | Low | Minor clarification risk | Keep, but prepare details |
+
+For each risk item, include:
+
+- The exact claim.
+- A likely interviewer follow-up question.
+- Missing evidence.
+- Delete/downgrade condition: "If you cannot answer/prove X, change it to Y or remove it."
+
+Use evidence-gap priority labels:
+
+| Priority | Meaning |
+| --- | --- |
+| Red | Must prove or delete |
+| Yellow | Should prove before interview |
+| Green | Optional context |
+
+If the user asks for interview-risk checking but provides no resume or bullets, ask for the content first. Do not construct a sample unless the user explicitly asks for a simulation. If simulating, clearly mark all assumptions.
