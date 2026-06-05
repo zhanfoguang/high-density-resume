@@ -1,0 +1,42 @@
+name: CI
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Validate JSON
+        run: python3 -m json.tool skills/high-density-resume/test-prompts.json >/dev/null
+
+      - name: Compile Python scripts
+        run: |
+          python3 -m py_compile \
+            tools/build_release.py \
+            tools/check_launch_ready.py \
+            tools/evidence_builder.py \
+            skills/high-density-resume/scripts/evidence_builder.py
+
+      - name: Build release package
+        run: python3 tools/build_release.py --version 0.0.0-ci --output-dir /tmp/high-density-resume-ci
+
+      - name: Launch readiness check
+        run: python3 tools/check_launch_ready.py --skip-release
+
+      - name: Verify release contents
+        run: |
+          test -f /tmp/high-density-resume-ci/high-density-resume-v0.0.0-ci/high-density-resume-skill-v0.0.0-ci.zip
+          test -f /tmp/high-density-resume-ci/high-density-resume-v0.0.0-ci/coze-store-listing.zh.md
+          test -f /tmp/high-density-resume-ci/high-density-resume-v0.0.0-ci/services.md
+          test -f /tmp/high-density-resume-ci/high-density-resume-v0.0.0-ci/assets/coze-case-low-material.svg

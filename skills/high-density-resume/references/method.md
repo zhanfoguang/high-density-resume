@@ -12,6 +12,12 @@ Use:
 action + tool/method + result
 ```
 
+For low-material users, expand the result field beyond awards or numbers:
+
+```text
+action + tool/method + beneficiary/deliverable/enterprise value
+```
+
 Examples:
 
 | Weak | Dense |
@@ -42,6 +48,51 @@ Example:
 ```text
 Automotive engineering base + AI-assisted rule decomposition + fast structured delivery habit
 ```
+
+## Enterprise Value Translation
+
+A resume line should help the reader understand what value the candidate can bring to an organization. If the user lacks obvious hard achievements, translate small real actions into enterprise value:
+
+| User material | Possible value |
+| --- | --- |
+| Helped others repeatedly | Service mindset, trust-building, team integration |
+| Organized notes, files, materials, or check-ins | Reduced communication cost, basic operations reliability |
+| Completed small coursework or lab output | Execution, technical foundation, learning discipline |
+| Used AI tools to learn or organize information | Fast adaptation, information processing, workflow leverage |
+| Has an unusual practical skill | Memorability, scarcity, relationship-building |
+
+Do not write the value alone. Always anchor it in the action that proves it.
+
+## Non-Obvious Experiences
+
+Some truthful experiences are not directly related to the target role but may still deserve low-priority retention. Before deleting, ask whether the experience proves:
+
+- Personal recognition or scarcity.
+- Helping behavior.
+- Trust-building in a new group.
+- Team integration.
+- Service mindset.
+- Organizing ability.
+- Cross-domain learning.
+
+Example safe wording:
+
+```text
+中医针灸基础理论与实操学习经历；曾在校内团队活动中为同学、老师提供基础放松支持，帮助建立信任与融入协作环境。
+```
+
+Avoid medical claims such as treatment, cure, diagnosis, or guaranteed improvement.
+
+## Activity Count Is Not Evidence
+
+Do not treat "participated in many activities" as proof. Ask what the user actually did:
+
+- Role.
+- Concrete task.
+- Tool or method.
+- Who benefited.
+- Output or change.
+- Target-role or enterprise value.
 
 ## Resume Arrangement
 

@@ -14,6 +14,7 @@ PROJECT = "high-density-resume"
 REPO_ROOT = Path(__file__).resolve().parents[1]
 SKILL_DIR = REPO_ROOT / "skills" / PROJECT
 PACKAGING_DIR = REPO_ROOT / "packaging"
+ROOT_ASSETS_DIR = REPO_ROOT / "assets"
 LICENSE_FILE = REPO_ROOT / "LICENSE"
 
 
@@ -51,14 +52,24 @@ def write_release_files(release_dir: Path, package_dir: Path, version: str) -> N
     copytree(SKILL_DIR, package_dir)
     (package_dir / "manifest.yaml").write_text(manifest(version), encoding="utf-8")
     shutil.copy2(LICENSE_FILE, package_dir / "LICENSE")
+    if ROOT_ASSETS_DIR.exists():
+        copytree(ROOT_ASSETS_DIR, release_dir / "assets")
 
     release_files = {
         "listing.zh.md": (PACKAGING_DIR / "listing.zh.md").read_text(encoding="utf-8"),
         "listing.en.md": (PACKAGING_DIR / "listing.en.md").read_text(encoding="utf-8"),
+        "coze-store-listing.zh.md": (PACKAGING_DIR / "coze-store-listing.zh.md").read_text(encoding="utf-8"),
+        "services.md": (REPO_ROOT / "docs" / "services.md").read_text(encoding="utf-8"),
+        "pricing.md": (REPO_ROOT / "docs" / "pricing.md").read_text(encoding="utf-8"),
+        "monetization.md": (REPO_ROOT / "docs" / "monetization.md").read_text(encoding="utf-8"),
+        "launch-audit.md": (REPO_ROOT / "docs" / "launch-audit.md").read_text(encoding="utf-8"),
+        "coze-redeploy-runbook.md": (REPO_ROOT / "docs" / "coze-redeploy-runbook.md").read_text(encoding="utf-8"),
         "package-checklist.md": (PACKAGING_DIR / "package-checklist.md").read_text(encoding="utf-8"),
         "test-prompts.md": (PACKAGING_DIR / "test-prompts.md").read_text(encoding="utf-8"),
         "test-report.md": read_template("test-report-template.md", version),
         "release-notes.md": read_template("release-notes-template.md", version),
+        "check_launch_ready.py": (REPO_ROOT / "tools" / "check_launch_ready.py").read_text(encoding="utf-8"),
+        "install_support_qr.py": (REPO_ROOT / "tools" / "install_support_qr.py").read_text(encoding="utf-8"),
     }
     for filename, content in release_files.items():
         (release_dir / filename).write_text(content, encoding="utf-8")

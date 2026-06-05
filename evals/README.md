@@ -9,6 +9,7 @@ The goal is not automated benchmarking. The goal is to see whether the skill beh
 | Case | Input type | Expected behavior |
 | --- | --- | --- |
 | [from-scratch](cases/from-scratch.md) | Sparse personal information | Ask follow-up questions before drafting |
+| [low-material-student](cases/low-material-student.md) | Student with few obvious achievements | Mine small truthful experiences and unusual signals |
 | [single-experience](cases/single-experience.md) | One raw experience | Extract evidence units and bullet options |
 | [existing-resume](cases/existing-resume.md) | Complete or partial resume | Diagnose and score before rewriting |
 | [dual-ai-review](cases/dual-ai-review.md) | Another AI's critique | Classify suggestions instead of blindly accepting |

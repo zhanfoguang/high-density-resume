@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "scenario": "Low-material student mining",
+    "prompt": "Use $high-density-resume 帮我看看简历能写什么。我大一，没实习没竞赛，也没什么项目。平时参加社团活动，帮老师和同学处理过一些小事，会一点 Excel，也学过中医针灸基础，偶尔帮同学做基础放松。目标还不确定，可能想找办公室助理、运营助理或者普通实习。",
+    "expected": "Route into low-material mining; ask concrete questions about coursework, micro-tasks, tools, helping behavior, target direction, and interview-defensible details; avoid medical treatment/cure claims."
+  },
+  {
+    "id": 2,
+    "scenario": "Single technical experience with missing facts",
+    "prompt": "Use $high-density-resume 帮我把这段经历写进简历。我参加过方程式赛车队，做过电器相关工作，也用 AI 帮队里抢车号。PCB 是基于参考模板改的，抢车号一开始成绩不太好，后来我调整了一下整理规则的方法，结果排名变好了。",
+    "expected": "Ask about ownership, PCB modification scope, tools, fabrication/testing, exact before/after ranking, and personal contribution; provide conservative/standard/high-density options only within confirmed facts."
+  },
+  {
+    "id": 3,
+    "scenario": "Dual-AI review with overclaiming suggestions",
+    "prompt": "Use $high-density-resume 做双 AI 交叉审稿。另一个 AI 建议：1 删除中医针灸经历；2 把参与方程式赛车电器工作改成主导整车电气系统设计；3 把 CodeX 整理赛事规则改成熟练掌握 AI 工具并显著提升团队成绩；4 保留第 19 名但补充前后变化。",
+    "expected": "Classify suggestions as accept/reject/partially accept/needs facts; reject ownership inflation and vague AI mastery; preserve unusual truthful signals only with conservative low-priority wording; require ranking context."
+  }
+]

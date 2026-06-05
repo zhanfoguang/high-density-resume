@@ -13,6 +13,7 @@
 - 区分主导、独立完成、参与协助，避免把简历写虚。
 - 同时照顾 HR 扫读、ATS/机器关键词、岗位价值和面试追问。
 - 支持从零采矿、单段经历拆解、已有简历审查、双 AI 交叉审稿和面试风险检查。
+- 对大一大二、项目少或觉得“没东西可写”的用户，从课程、社团微任务、帮助他人、AI 辅助学习和非典型技能里挖掘真实证据。
 
 ## Start Here
 
@@ -24,12 +25,17 @@
 | 想看改写效果 | [完整改写示例](examples/full-walkthrough.md) / [Before & After](examples/before-after.md) |
 | 想检查机器筛选和 HR 扫读 | [HR 与机器筛选友好规则](docs/hr-machine-screening.md) |
 | 想评估当前简历 | [评分表](docs/rubric.md) / [压力测试清单](templates/review-checklist.md) |
+| 想支持作者或商业化发布 | [变现说明](docs/monetization.md) |
+| 想看可付费服务菜单 | [Services](docs/services.md) |
+| 想设置服务价格 | [Suggested Pricing](docs/pricing.md) |
+| 想确认上线还差什么 | [Launch Audit](docs/launch-audit.md) |
+| 想重新部署扣子技能 | [Coze Redeploy Runbook](docs/coze-redeploy-runbook.md) |
 
 如果你有看似“不相关”但能体现个人特质的经历，参考 [Distinctive Signals](examples/distinctive-signals.md)，判断它是否能证明社交信任、助人倾向、团队融入或跨领域迁移。
 
 ## Use As An Agent Skill
 
-Claude Code 用户级安装：
+User-level install for Claude-style skill directories:
 
 ```bash
 python3 tools/install_skill.py --target claude
@@ -41,7 +47,7 @@ Codex / Skills CLI 安装：
 npx skills add zhanfoguang/high-density-resume@high-density-resume
 ```
 
-Claude Code 项目级安装：
+Project-level install for Claude-style skill directories:
 
 ```bash
 python3 tools/install_skill.py --target claude-project --project /path/to/project
@@ -85,6 +91,30 @@ dist/high-density-resume-v1.0.0/
 
 其中 zip 是可上传平台的 Skill 包，其他文件用于平台介绍页、审核材料和发布记录。平台私有字段、定价、截图、结算信息需要在上传前按目标平台后台要求手动补充。
 
+更多商业化路径见 [Monetization Notes](docs/monetization.md)。简短原则：GitHub 保持开源可信，平台商店负责产品化分发，人工诊断和上架协助作为可收费服务。
+
+扣子技能商店可复制上架材料见 [Coze Store Listing](packaging/coze-store-listing.zh.md)。
+
+当前上线状态和剩余缺口见 [Launch Audit](docs/launch-audit.md)。
+
+发布前可运行自检：
+
+```bash
+python3 tools/check_launch_ready.py
+```
+
+指定某个发行目录：
+
+```bash
+python3 tools/check_launch_ready.py --release-dir dist/high-density-resume-v0.2.0
+```
+
+CI 或尚未生成 `dist/` 时可运行：
+
+```bash
+python3 tools/check_launch_ready.py --skip-release
+```
+
 ## 五步法
 
 | 步骤 | 目标 | 关键动作 | 输出物 |
@@ -114,13 +144,23 @@ dist/high-density-resume-v1.0.0/
 ```text
 .
 ├── README.md
+├── assets/
+│   ├── coze-case-ai-review.svg
+│   ├── coze-case-formula-student.svg
+│   ├── coze-case-low-material.svg
+│   ├── support-wechat.png
+│   └── support-wechat-placeholder.svg
 ├── docs/
 │   ├── faq.md
 │   ├── agent-compatibility.md
+│   ├── coze-redeploy-runbook.md
 │   ├── dual-ai-review-workflow.md
 │   ├── hr-machine-screening.md
+│   ├── launch-audit.md
 │   ├── method.md
+│   ├── monetization.md
 │   ├── rubric.md
+│   ├── services.md
 │   └── user-entry-workflows.md
 ├── templates/
 │   ├── ats-friendly-resume-template.md
@@ -140,6 +180,7 @@ dist/high-density-resume-v1.0.0/
 │   └── resume-coach.md
 ├── packaging/
 │   ├── manifest.yaml
+│   ├── coze-store-listing.zh.md
 │   ├── listing.zh.md
 │   ├── listing.en.md
 │   ├── package-checklist.md
@@ -151,7 +192,8 @@ dist/high-density-resume-v1.0.0/
 │       ├── agents/openai.yaml
 │       ├── assets/
 │       ├── references/
-│       └── scripts/
+│       ├── scripts/
+│       └── test-prompts.json
 ├── tools/
 │   ├── build_release.py
 │   ├── evidence_builder.py
@@ -182,6 +224,31 @@ dist/high-density-resume-v1.0.0/
 - 针对学生、转专业、工程、产品、运营等场景的扩展指南。
 
 提交前请阅读 [贡献指南](CONTRIBUTING.md)。
+
+## Support
+
+如果这个项目帮你把简历写得更真实、更能被 HR 看懂，可以请我喝杯茶。
+
+<p>
+  <img src="assets/support-wechat.png" width="180" alt="微信收款码" />
+</p>
+
+
+可使用脚本替换：
+
+```bash
+python3 tools/install_support_qr.py /path/to/wechat-qr.png
+python3 tools/check_launch_ready.py
+```
+
+如果你需要更深入的帮助，可以从这里开始：
+
+- 脱敏公开咨询：提交 [匿名简历诊断 / 服务咨询](.github/ISSUE_TEMPLATE/resume-diagnosis-request.md)。
+- 付费服务边界：查看 [Services](docs/services.md)，包括完整简历带读、单段经历改写、低素材学生挖掘和 Skill / Coze 上架协助。
+- 建议价格与交付：查看 [Suggested Pricing](docs/pricing.md)。
+- 商业化路径：查看 [Monetization Notes](docs/monetization.md) 和 [Launch Audit](docs/launch-audit.md)。
+
+公开 issue 请务必脱敏，不要上传完整个人简历或联系方式。
 
 ## License
 

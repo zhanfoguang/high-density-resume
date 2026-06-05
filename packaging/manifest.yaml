@@ -11,6 +11,8 @@ tags:
   - cv
   - career
   - writing
+  - student
+  - internship
   - ai-agent
   - skill
 languages:
@@ -25,7 +27,7 @@ entrypoint: SKILL.md
 description: >
   A cross-agent SKILL.md package that turns raw personal experience into
   high-density, evidence-backed resume bullets using action + tool/method +
-  result evidence units.
+  result evidence units, low-material mining, and interview-risk checks.
 requirements:
   python: ">=3.10"
   third_party_dependencies: []

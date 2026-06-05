@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 请我喝茶 / 支持项目
+    url: https://github.com/zhanfoguang/high-density-resume#support
+    about: 如果这个项目帮到你，可以在 README 末尾查看赞赏入口。
+  - name: 平台上架与商业化路径
+    url: https://github.com/zhanfoguang/high-density-resume/blob/main/docs/monetization.md
+    about: 查看 GitHub、扣子技能商店和人工服务的转化路径。
+  - name: 服务菜单与交付边界
+    url: https://github.com/zhanfoguang/high-density-resume/blob/main/docs/services.md
+    about: 查看哪些内容适合公开脱敏咨询，哪些适合私密付费服务。

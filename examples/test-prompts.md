@@ -34,7 +34,24 @@ Check:
 - Does it ask for exact ranking, tools, scope, and what was modified?
 - Does it provide conservative, standard, and high-density bullet options?
 
-## 3. Existing Resume Diagnosis
+## 3. Low-Material Student Mining
+
+Expected behavior: do not conclude that the user has nothing to write. Mine small real actions, helping behavior, and unusual skills before drafting.
+
+```text
+Use $high-density-resume 帮我看看简历能写什么。
+
+我大一，没实习没竞赛，也没什么项目。平时就参加社团活动，帮老师和同学处理过一些小事，会一点 Excel，也学过中医针灸基础，偶尔帮同学做基础放松。目标还不确定，可能想找办公室助理、运营助理或者普通实习。
+```
+
+Check:
+
+- Does the agent route into low-material mining instead of saying there is not enough experience?
+- Does it ask about course work, micro-tasks, tools, helping behavior, and target direction?
+- Does it translate small actions into enterprise value such as execution, communication cost reduction, team trust, and service mindset?
+- Does it keep health-related wording conservative and avoid treatment or cure claims?
+
+## 4. Existing Resume Diagnosis
 
 Expected behavior: diagnose before rewriting.
 
@@ -53,7 +70,7 @@ Check:
 - Does it find target-role keyword gaps without keyword stuffing?
 - Does it give a revision plan before rewriting?
 
-## 4. Dual-AI Review
+## 5. Dual-AI Review
 
 Expected behavior: review another AI's suggestions without blindly accepting them.
 
@@ -72,7 +89,7 @@ Check:
 - Does it identify suggestions that need more facts?
 - Does it explain why a suggestion should be accepted or rejected?
 
-## 5. Human Read-Through Risk Check
+## 6. Human Read-Through Risk Check
 
 Expected behavior: act like a strict interviewer and find claims that may fail follow-up questions.
 

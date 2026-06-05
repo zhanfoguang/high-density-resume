@@ -1,4 +1,4 @@
 interface:
   display_name: "High Density Resume"
-  short_description: "Evidence-chain resume rewriting."
-  default_prompt: "Use $high-density-resume to turn my raw experience into high-density, evidence-backed resume content."
+  short_description: "Mine sparse experiences into truthful resume evidence."
+  default_prompt: "Use $high-density-resume to help me find truthful resume material, rewrite it into evidence-backed bullets, and check interview risk."

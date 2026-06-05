@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">方程式赛车经历改写案例封面</title>
+  <desc id="desc">Cover image for a Formula Student resume rewriting case.</desc>
+  <rect width="1200" height="675" fill="#0f172a"/>
+  <rect x="72" y="72" width="1056" height="531" rx="22" fill="#111827" stroke="#334155"/>
+  <text x="120" y="160" font-family="Arial, sans-serif" font-size="54" font-weight="700" fill="#f8fafc">把“参与赛车电器工作”写实</text>
+  <text x="120" y="222" font-family="Arial, sans-serif" font-size="28" fill="#cbd5e1">动作 + 工具/方法 + 结果，经得起追问</text>
+  <g font-family="Arial, sans-serif" font-size="28" font-weight="700">
+    <rect x="120" y="302" width="290" height="86" rx="14" fill="#1e293b"/>
+    <text x="150" y="354" fill="#93c5fd">PCB 改了什么？</text>
+    <rect x="455" y="302" width="290" height="86" rx="14" fill="#1e293b"/>
+    <text x="485" y="354" fill="#86efac">工具和边界？</text>
+    <rect x="790" y="302" width="290" height="86" rx="14" fill="#1e293b"/>
+    <text x="820" y="354" fill="#fbbf24">排名和证据？</text>
+  </g>
+  <text x="120" y="488" font-family="Arial, sans-serif" font-size="34" fill="#e5e7eb">保守版 / 标准版 / 高密度版</text>
+  <text x="120" y="540" font-family="Arial, sans-serif" font-size="26" fill="#94a3b8">不把参与写成主导，不把模板修改写成原创设计</text>
+</svg>

@@ -22,6 +22,16 @@ I joined a Formula Student team, did some electrical work, and used AI to help w
 
 Expected: the skill asks about ownership, exact ranking, tools, modified scope, and interview-defensible details.
 
+## Low-Material Student Mining
+
+```text
+Use $high-density-resume to help me find resume material.
+
+I am a first-year student with no internships, competitions, or major projects. I joined some campus activities, helped classmates and a teacher with small tasks, know basic Excel, and have basic acupuncture learning experience that I sometimes use for simple relaxation support among classmates. I may apply for office assistant, operations assistant, or general internship roles.
+```
+
+Expected: the skill mines coursework, micro-tasks, helping behavior, tools, target direction, and enterprise value; it keeps health-related wording conservative and does not claim treatment or cure.
+
 ## Existing Resume Diagnosis
 
 ```text
