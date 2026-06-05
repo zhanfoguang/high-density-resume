@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Check whether the project is ready for GitHub and marketplace launch."""
+"""Check whether the project is ready for public GitHub release."""
 
 from __future__ import annotations
 
@@ -17,20 +17,11 @@ SKILL_DIR = REPO_ROOT / "skills" / "high-density-resume"
 
 REQUIRED_FILES = [
     "README.md",
-    "docs/monetization.md",
-    "docs/services.md",
-    "docs/pricing.md",
-    "docs/launch-audit.md",
-    "docs/coze-redeploy-runbook.md",
-    "packaging/coze-store-listing.zh.md",
     ".github/FUNDING.yml",
     ".github/ISSUE_TEMPLATE/evidence-case.md",
     ".github/ISSUE_TEMPLATE/resume-diagnosis-request.md",
     "assets/support-wechat-placeholder.svg",
     "assets/support-wechat.png",
-    "assets/coze-case-low-material.svg",
-    "assets/coze-case-formula-student.svg",
-    "assets/coze-case-ai-review.svg",
     "tools/check_launch_ready.py",
     "tools/install_support_qr.py",
     "skills/high-density-resume/SKILL.md",
@@ -42,12 +33,6 @@ REQUIRED_FILES = [
 
 
 REQUIRED_RELEASE_FILES = [
-    "coze-store-listing.zh.md",
-    "services.md",
-    "pricing.md",
-    "monetization.md",
-    "launch-audit.md",
-    "coze-redeploy-runbook.md",
     "listing.zh.md",
     "listing.en.md",
     "package-checklist.md",
@@ -56,9 +41,6 @@ REQUIRED_RELEASE_FILES = [
     "release-notes.md",
     "assets/support-wechat-placeholder.svg",
     "assets/support-wechat.png",
-    "assets/coze-case-low-material.svg",
-    "assets/coze-case-formula-student.svg",
-    "assets/coze-case-ai-review.svg",
     "check_launch_ready.py",
     "install_support_qr.py",
 ]
@@ -96,7 +78,7 @@ def latest_release_dir() -> Path | None:
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Check GitHub and marketplace launch readiness.")
+    parser = argparse.ArgumentParser(description="Check public GitHub release readiness.")
     parser.add_argument(
         "--skip-release",
         action="store_true",
@@ -138,11 +120,6 @@ def main() -> int:
     if file_exists("README.md"):
         readme = read("README.md")
         check("## Support" in readme, "OK", "README has Support section", rows)
-        check("docs/services.md" in readme, "OK", "README links to services.md", rows)
-        check("docs/pricing.md" in readme, "OK", "README links to pricing.md", rows)
-        check("docs/monetization.md" in readme, "OK", "README links to monetization.md", rows)
-        check("docs/launch-audit.md" in readme, "OK", "README links to launch-audit.md", rows)
-        check("docs/coze-redeploy-runbook.md" in readme, "OK", "README links to Coze redeploy runbook", rows)
 
     real_qr = REPO_ROOT / "assets" / "support-wechat.png"
     readme_text = read("README.md") if file_exists("README.md") else ""
@@ -165,7 +142,11 @@ def main() -> int:
     elif release_dir is None:
         rows.append(("FAIL", "no dist/high-density-resume-v* release folder found"))
     else:
-        rows.append(("OK", f"latest release folder: {release_dir.relative_to(REPO_ROOT)}"))
+        try:
+            release_label = str(release_dir.relative_to(REPO_ROOT))
+        except ValueError:
+            release_label = str(release_dir)
+        rows.append(("OK", f"latest release folder: {release_label}"))
         for rel in REQUIRED_RELEASE_FILES:
             check((release_dir / rel).exists(), "OK", f"release file exists: {rel}", rows)
         zips = sorted(release_dir.glob("high-density-resume-skill-v*.zip"))
@@ -184,12 +165,12 @@ def main() -> int:
     has_fail = any(level == "FAIL" for level, _ in rows)
     has_warn = any(level == "WARN" for level, _ in rows)
     if has_fail:
-        print("\nLaunch readiness: FAIL")
+        print("\nRelease readiness: FAIL")
         return 1
     if has_warn:
-        print("\nLaunch readiness: PASS WITH WARNINGS")
+        print("\nRelease readiness: PASS WITH WARNINGS")
         return 0
-    print("\nLaunch readiness: PASS")
+    print("\nRelease readiness: PASS")
     return 0
 
 

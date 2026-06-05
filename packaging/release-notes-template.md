@@ -22,11 +22,9 @@ High Density Resume is a cross-agent `SKILL.md` package for turning raw personal
 - Launch-readiness checker script.
 - Generic marketplace manifest.
 - Chinese and English listing copy.
-- Coze skill store listing draft and case scripts.
-- Coze redeploy runbook for rebuilding the platform project.
-- Case cover SVG assets and support QR placeholder.
-- Services and monetization boundary documentation.
-- Marketplace test prompts.
+- Support QR placeholder / real support image handoff.
+- Public package without internal operation notes.
+- Test prompts.
 
 ## Requirements
 

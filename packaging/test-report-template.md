@@ -70,12 +70,11 @@ Use the repository `evals/scorecard.md` if you run deeper manual evaluations.
 - [ ] Core information is not stored only in images.
 - [ ] The resume states what value the candidate can bring to the target role.
 
-## Marketplace / Monetization Checks
+## Public Release Checks
 
-- [ ] `coze-store-listing.zh.md` exists in the release folder.
-- [ ] Case cover assets exist if referenced by the Coze listing.
 - [ ] Support QR image is real or clearly marked as a placeholder.
 - [ ] No copy promises offers, ATS pass, platform approval, or guaranteed income.
+- [ ] Public files do not expose internal operation notes.
 - [ ] Public issue templates warn users to remove private resume data.
 
 ## Notes

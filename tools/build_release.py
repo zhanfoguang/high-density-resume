@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build a clean uploadable release package for high-density-resume."""
+"""Build a clean release package for high-density-resume."""
 
 from __future__ import annotations
 
@@ -58,12 +58,6 @@ def write_release_files(release_dir: Path, package_dir: Path, version: str) -> N
     release_files = {
         "listing.zh.md": (PACKAGING_DIR / "listing.zh.md").read_text(encoding="utf-8"),
         "listing.en.md": (PACKAGING_DIR / "listing.en.md").read_text(encoding="utf-8"),
-        "coze-store-listing.zh.md": (PACKAGING_DIR / "coze-store-listing.zh.md").read_text(encoding="utf-8"),
-        "services.md": (REPO_ROOT / "docs" / "services.md").read_text(encoding="utf-8"),
-        "pricing.md": (REPO_ROOT / "docs" / "pricing.md").read_text(encoding="utf-8"),
-        "monetization.md": (REPO_ROOT / "docs" / "monetization.md").read_text(encoding="utf-8"),
-        "launch-audit.md": (REPO_ROOT / "docs" / "launch-audit.md").read_text(encoding="utf-8"),
-        "coze-redeploy-runbook.md": (REPO_ROOT / "docs" / "coze-redeploy-runbook.md").read_text(encoding="utf-8"),
         "package-checklist.md": (PACKAGING_DIR / "package-checklist.md").read_text(encoding="utf-8"),
         "test-prompts.md": (PACKAGING_DIR / "test-prompts.md").read_text(encoding="utf-8"),
         "test-report.md": read_template("test-report-template.md", version),
@@ -84,7 +78,7 @@ def zip_package(package_dir: Path, zip_path: Path) -> None:
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="Build a marketplace-ready high-density-resume skill package."
+        description="Build a high-density-resume skill package."
     )
     parser.add_argument(
         "--version",

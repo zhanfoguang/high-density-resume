@@ -31,12 +31,11 @@ jobs:
       - name: Build release package
         run: python3 tools/build_release.py --version 0.0.0-ci --output-dir /tmp/high-density-resume-ci
 
-      - name: Launch readiness check
+      - name: Release readiness check
         run: python3 tools/check_launch_ready.py --skip-release
 
       - name: Verify release contents
         run: |
           test -f /tmp/high-density-resume-ci/high-density-resume-v0.0.0-ci/high-density-resume-skill-v0.0.0-ci.zip
-          test -f /tmp/high-density-resume-ci/high-density-resume-v0.0.0-ci/coze-store-listing.zh.md
-          test -f /tmp/high-density-resume-ci/high-density-resume-v0.0.0-ci/services.md
-          test -f /tmp/high-density-resume-ci/high-density-resume-v0.0.0-ci/assets/coze-case-low-material.svg
+          test -f /tmp/high-density-resume-ci/high-density-resume-v0.0.0-ci/listing.zh.md
+          test -f /tmp/high-density-resume-ci/high-density-resume-v0.0.0-ci/assets/support-wechat.png
