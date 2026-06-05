@@ -16,5 +16,11 @@
     "scenario": "Dual-AI review with overclaiming suggestions",
     "prompt": "Use $high-density-resume 做双 AI 交叉审稿。另一个 AI 建议：1 删除中医针灸经历；2 把参与方程式赛车电器工作改成主导整车电气系统设计；3 把 CodeX 整理赛事规则改成熟练掌握 AI 工具并显著提升团队成绩；4 保留第 19 名但补充前后变化。",
     "expected": "Classify suggestions as accept/reject/partially accept/needs facts; reject ownership inflation and vague AI mastery; preserve unusual truthful signals only with conservative low-priority wording; require ranking context."
+  },
+  {
+    "id": 4,
+    "scenario": "Common resume framework adapter",
+    "prompt": "Use $high-density-resume 按 Google XYZ 或 STAR 方法帮我改这条简历：参加社团招新，帮忙做了一些现场工作，也用 Excel 记录报名信息。没有特别大的成果，但想写得更专业一点。",
+    "expected": "Treat STAR/XYZ as fact-mining lenses; ask for ownership, scope, Excel action, count, beneficiary, deliverable, and result; do not invent metrics or leadership claims; provide conservative wording if evidence remains weak."
   }
 ]

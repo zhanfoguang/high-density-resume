@@ -110,3 +110,20 @@ Check:
 - Does the agent focus on risk rather than style?
 - Does it recommend downgrading unclear claims?
 - Does it separate strong evidence from fragile wording?
+
+## 7. Common Framework Adapter
+
+Expected behavior: use STAR/CAR/PAR/XYZ/ATS advice as a fact-mining adapter, not as a reason to invent metrics or overclaim.
+
+```text
+Use $high-density-resume 按 Google XYZ 或 STAR 方法帮我改这条简历：
+
+参加社团招新，帮忙做了一些现场工作，也用 Excel 记录报名信息。没有特别大的成果，但想写得更专业一点。
+```
+
+Check:
+
+- Does the agent ask for the user's actual role, action, tool use, count/scope, beneficiary, and result?
+- Does it avoid inventing growth percentages, conversion rates, or leadership claims?
+- Does it explain how STAR/CAR/PAR/XYZ map into action + tool/method + result?
+- Does it provide conservative wording if numbers are missing?

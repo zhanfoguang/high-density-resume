@@ -22,6 +22,7 @@
 | 不知道怎么开始 | [用户入口分流工作流](docs/user-entry-workflows.md) |
 | 想理解完整方法 | [方法论](docs/method.md) |
 | 想直接填模板 | [简历模板](templates/resume-template.md) / [ATS 友好模板](templates/ats-friendly-resume-template.md) |
+| 想融合 STAR/CAR/PAR/XYZ | [常见简历框架适配](docs/common-resume-frameworks.md) |
 | 想看改写效果 | [完整改写示例](examples/full-walkthrough.md) / [Before & After](examples/before-after.md) |
 | 想检查机器筛选和 HR 扫读 | [HR 与机器筛选友好规则](docs/hr-machine-screening.md) |
 | 想评估当前简历 | [评分表](docs/rubric.md) / [压力测试清单](templates/review-checklist.md) |
@@ -154,6 +155,7 @@ python3 tools/check_launch_ready.py --skip-release
 │   ├── faq.md
 │   ├── agent-compatibility.md
 │   ├── coze-redeploy-runbook.md
+│   ├── common-resume-frameworks.md
 │   ├── dual-ai-review-workflow.md
 │   ├── hr-machine-screening.md
 │   ├── launch-audit.md

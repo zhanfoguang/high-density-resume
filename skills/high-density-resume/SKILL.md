@@ -42,6 +42,8 @@ First classify the user input:
 
    Remove claims like "improved ability", "learned knowledge", "responsible and proactive", "familiar with", or "deep understanding" unless backed by evidence.
 
+   If the user mentions STAR, CAR, PAR, XYZ, Google resume formula, accomplishment bullets, or ATS optimization, treat those as external lenses for missing facts. Do not mechanically force the format. Convert them into evidence-chain wording with verified ownership, method, result, and interview defensibility. See `references/common-frameworks.md` when needed.
+
 5. Arrange the resume.
    Use conservative, ATS-friendly structure. Put the strongest, most interview-defensible evidence in the first third. Group more than four experiences into scan-friendly sections such as technical practice, business practice, open source, or community work.
 
@@ -111,6 +113,7 @@ Automatically reject or downgrade these patterns:
 | Medical treatment, cure, diagnosis, or guaranteed improvement | Basic learning/practice, relaxation support, trust-building, team integration |
 | Activity count as ability | Specific role, action, beneficiary, deliverable, and enterprise value |
 | Keyword list detached from evidence | Natural keyword placement inside evidence-backed bullets |
+| Formula-perfect bullet with unverified facts | Conservative bullet plus questions for missing ownership, metric, or method |
 
 ## Output Rules
 
@@ -133,9 +136,11 @@ Automatically reject or downgrade these patterns:
 - For interview-risk checks, also require resume text or bullets. If missing, ask for content and do not construct a sample unless the user explicitly asks for a simulation.
 - Do not encourage visual-template novelty. Use familiar, machine-readable resume structure; make the content distinctive, not the layout.
 - Treat HR searchability as real keyword distribution: target keywords should appear naturally in evidence bullets, not only in a keyword list.
+- Treat STAR/CAR/PAR/XYZ/ATS advice as adapters, not overrides. The strongest formula is still unsafe if the user cannot prove the ownership, metric, method, or result.
 
 ## Resource Guide
 
+- For STAR/CAR/PAR/XYZ and widely shared resume formulas, read `references/common-frameworks.md`.
 - For HR/ATS screening, conservative templates, and enterprise-value checks, read `references/hr-ats-screening.md`.
 - For input classification and from-scratch/resume-review workflows, read `references/user-entry-workflows.md`.
 - For the complete method and pressure-test logic, read `references/method.md`.

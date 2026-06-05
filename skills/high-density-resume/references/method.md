@@ -12,6 +12,8 @@ Use:
 action + tool/method + result
 ```
 
+This can absorb STAR/CAR/PAR/XYZ frameworks, but formulas are only fact-mining lenses. Do not let formula elegance override truth, ownership, or interview defensibility. For details, see `common-frameworks.md`.
+
 For low-material users, expand the result field beyond awards or numbers:
 
 ```text

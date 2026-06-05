@@ -35,6 +35,7 @@ REQUIRED_FILES = [
     "tools/install_support_qr.py",
     "skills/high-density-resume/SKILL.md",
     "skills/high-density-resume/test-prompts.json",
+    "skills/high-density-resume/references/common-frameworks.md",
     "skills/high-density-resume/references/hr-ats-screening.md",
     "skills/high-density-resume/references/distinctive-signals.md",
 ]
@@ -70,6 +71,7 @@ SKILL_ZIP_REQUIRED = [
     "test-prompts.json",
     "references/hr-ats-screening.md",
     "references/distinctive-signals.md",
+    "references/common-frameworks.md",
 ]
 
 
