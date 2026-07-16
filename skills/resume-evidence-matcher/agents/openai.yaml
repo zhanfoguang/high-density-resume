@@ -1,0 +1,4 @@
+interface:
+  display_name: "简历证据链岗位匹配器"
+  short_description: "基于真实经历证据评估岗位覆盖并生成可追问的定制简历"
+  default_prompt: "使用 $resume-evidence-matcher 对比我的简历和目标 JD，生成可追溯的证据覆盖报告与定制简历。"

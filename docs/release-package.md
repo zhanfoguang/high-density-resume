@@ -1,11 +1,17 @@
 # Release Package Guide
 
-This repository is the open-source home of High Density Resume. Marketplace distribution should use a generated release package instead of depending on the GitHub repository directly.
+This repository is the open-source home of the High Density Resume skill suite. Marketplace distribution should use a generated release package instead of depending on the GitHub repository directly.
 
 ## Build
 
 ```bash
 python3 tools/build_release.py --version 1.0.0
+```
+
+The default is `high-density-resume`. Build the JD evidence matcher with:
+
+```bash
+python3 tools/build_release.py --skill resume-evidence-matcher --version 1.0.0
 ```
 
 Output:
@@ -33,11 +39,11 @@ manifest.yaml
 LICENSE
 ```
 
-`references/` includes user-entry workflow routing, the core method, Before / After patterns, and the optional dual-AI review workflow.
+For `high-density-resume`, `references/` includes user-entry workflow routing, the core method, Before / After patterns, and the optional dual-AI review workflow. For `resume-evidence-matcher`, it includes the evidence-chain method, matching rubric, and employment-safety boundaries.
 
 ## What To Upload
 
-Upload `high-density-resume-skill-vX.Y.Z.zip` to the target marketplace if it accepts a generic `SKILL.md` package.
+Upload the selected `<skill>-skill-vX.Y.Z.zip` to the target marketplace if it accepts a generic `SKILL.md` package.
 
 Use the extra Markdown files for:
 
@@ -47,7 +53,13 @@ Use the extra Markdown files for:
 - Compatibility test report.
 - Release notes.
 
-For deeper model behavior checks, use the repository's `evals/` folder before building a final marketplace package.
+Before building a final marketplace package, run `python3 -m unittest discover -s tests -v` for both skills. The original `high-density-resume` skill also has deeper model behavior cases in `evals/`.
+
+Run the selected skill's release checks with:
+
+```bash
+python3 tools/check_launch_ready.py --skill resume-evidence-matcher --skip-release
+```
 
 ## What To Edit Per Platform
 

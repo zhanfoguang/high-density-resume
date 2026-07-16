@@ -1,0 +1,46 @@
+{
+  "evidence": [
+    {
+      "id": "E1",
+      "fact": "基于参考模板修改并绘制 PCB，使用 Altium Designer 完成关键模块布线"
+    },
+    {
+      "id": "E2",
+      "fact": "参与方程式赛车队电器工作，配合完成硬连线调试"
+    },
+    {
+      "id": "E3",
+      "fact": "使用 Codex 整理抢车号规则，调整策略后排名从上午第31名提升至第19名"
+    }
+  ],
+  "requirements": [
+    {
+      "id": "R1",
+      "text": "使用 Altium Designer 完成 PCB 布线",
+      "importance": "must",
+      "status": "direct",
+      "evidence_ids": ["E1"]
+    },
+    {
+      "id": "R2",
+      "text": "协作完成电气调试并记录问题",
+      "importance": "must",
+      "status": "partial",
+      "evidence_ids": ["E2"]
+    },
+    {
+      "id": "R3",
+      "text": "使用 AI 工具整理技术资料",
+      "importance": "preferred",
+      "status": "direct",
+      "evidence_ids": ["E3"]
+    },
+    {
+      "id": "R4",
+      "text": "独立完成 PCB 设计和制板验证",
+      "importance": "preferred",
+      "status": "gap",
+      "evidence_ids": []
+    }
+  ]
+}

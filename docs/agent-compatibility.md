@@ -1,9 +1,10 @@
 # Agent Compatibility
 
-This repository ships a standard `SKILL.md` package at:
+This repository ships two standard `SKILL.md` packages at:
 
 ```text
 skills/high-density-resume/
+skills/resume-evidence-matcher/
 ```
 
 The skill avoids platform-specific instructions. It uses only the portable core that most SKILL.md-compatible agents understand:
@@ -24,12 +25,20 @@ The skill avoids platform-specific instructions. It uses only the portable core 
 | OpenClaw-style local agents | `~/.openclaw/skills/high-density-resume` | `python3 tools/install_skill.py --target openclaw` |
 | Any SKILL.md-compatible agent | Custom skills directory | `python3 tools/install_skill.py --target custom --path /path/to/skills` |
 
+All commands default to `high-density-resume`. Add `--skill resume-evidence-matcher` before `--target` to install the JD evidence-matching skill instead.
+
 ## Claude Code
 
 Claude Code can load skills from user-level and project-level skill folders. For this project:
 
 ```bash
 python3 tools/install_skill.py --target claude
+```
+
+JD evidence matching:
+
+```bash
+python3 tools/install_skill.py --skill resume-evidence-matcher --target claude
 ```
 
 Project-local install:
@@ -52,6 +61,10 @@ Install through Skills CLI when published:
 npx skills add zhanfoguang/high-density-resume@high-density-resume
 ```
 
+```bash
+npx skills add zhanfoguang/high-density-resume@resume-evidence-matcher
+```
+
 For a direct local copy:
 
 ```bash
@@ -60,7 +73,7 @@ python3 tools/install_skill.py --target codex
 
 ## OpenClaw And Other Agents
 
-If your agent supports SKILL.md-style skills, copy `skills/high-density-resume/` into its configured skills directory.
+If your agent supports SKILL.md-style skills, copy either folder from `skills/` into its configured skills directory.
 
 For OpenClaw-style local layouts:
 
@@ -78,6 +91,12 @@ The destination path should be the parent skills directory. The script creates:
 
 ```text
 /path/to/skills/high-density-resume/
+```
+
+With `--skill resume-evidence-matcher`, the script creates:
+
+```text
+/path/to/skills/resume-evidence-matcher/
 ```
 
 ## Human Use

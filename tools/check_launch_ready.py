@@ -12,7 +12,7 @@ from pathlib import Path
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-SKILL_DIR = REPO_ROOT / "skills" / "high-density-resume"
+DEFAULT_SKILL = "high-density-resume"
 
 
 REQUIRED_FILES = [
@@ -24,21 +24,53 @@ REQUIRED_FILES = [
     "assets/support-wechat.png",
     "tools/check_launch_ready.py",
     "tools/install_support_qr.py",
-    "skills/high-density-resume/SKILL.md",
-    "skills/high-density-resume/test-prompts.json",
-    "skills/high-density-resume/references/common-frameworks.md",
-    "skills/high-density-resume/references/hr-ats-screening.md",
-    "skills/high-density-resume/references/distinctive-signals.md",
 ]
 
 
-REQUIRED_RELEASE_FILES = [
+SKILL_REQUIRED_FILES = {
+    "high-density-resume": [
+        "SKILL.md",
+        "test-prompts.json",
+        "references/common-frameworks.md",
+        "references/hr-ats-screening.md",
+        "references/distinctive-signals.md",
+    ],
+    "resume-evidence-matcher": [
+        "SKILL.md",
+        "test-prompts.json",
+        "scripts/calculate_coverage.py",
+        "references/evidence-chain.md",
+        "references/matching-rubric.md",
+        "references/safety-boundaries.md",
+    ],
+}
+
+
+SKILL_MARKERS = {
+    "high-density-resume": (
+        "## CHECKPOINTS",
+        "## Failure Modes And Fallbacks",
+        "## Risk-Action Blacklist",
+    ),
+    "resume-evidence-matcher": (
+        "🔴 CHECKPOINT",
+        "## 反例与黑名单",
+        "## 异常与回退",
+    ),
+}
+
+
+COMMON_RELEASE_FILES = [
     "listing.zh.md",
     "listing.en.md",
     "package-checklist.md",
     "test-prompts.md",
     "test-report.md",
     "release-notes.md",
+]
+
+
+HIGH_DENSITY_RELEASE_FILES = [
     "assets/support-wechat-placeholder.svg",
     "assets/support-wechat.png",
     "check_launch_ready.py",
@@ -46,15 +78,27 @@ REQUIRED_RELEASE_FILES = [
 ]
 
 
-SKILL_ZIP_REQUIRED = [
-    "SKILL.md",
-    "manifest.yaml",
-    "LICENSE",
-    "test-prompts.json",
-    "references/hr-ats-screening.md",
-    "references/distinctive-signals.md",
-    "references/common-frameworks.md",
-]
+SKILL_ZIP_REQUIRED = {
+    "high-density-resume": [
+        "SKILL.md",
+        "manifest.yaml",
+        "LICENSE",
+        "test-prompts.json",
+        "references/hr-ats-screening.md",
+        "references/distinctive-signals.md",
+        "references/common-frameworks.md",
+    ],
+    "resume-evidence-matcher": [
+        "SKILL.md",
+        "manifest.yaml",
+        "LICENSE",
+        "test-prompts.json",
+        "scripts/calculate_coverage.py",
+        "references/evidence-chain.md",
+        "references/matching-rubric.md",
+        "references/safety-boundaries.md",
+    ],
+}
 
 
 def check(condition: bool, level: str, message: str, rows: list[tuple[str, str]]) -> None:
@@ -69,16 +113,24 @@ def read(path: str) -> str:
     return (REPO_ROOT / path).read_text(encoding="utf-8")
 
 
-def latest_release_dir() -> Path | None:
+def latest_release_dir(skill: str) -> Path | None:
     dist = REPO_ROOT / "dist"
     if not dist.exists():
         return None
-    candidates = sorted(dist.glob("high-density-resume-v*"), key=lambda p: p.stat().st_mtime)
+    candidates = sorted(
+        dist.glob(f"{skill}-v*"), key=lambda p: p.stat().st_mtime
+    )
     return candidates[-1] if candidates else None
 
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Check public GitHub release readiness.")
+    parser.add_argument(
+        "--skill",
+        choices=tuple(SKILL_REQUIRED_FILES),
+        default=DEFAULT_SKILL,
+        help=f"Skill slug to check. Default: {DEFAULT_SKILL}.",
+    )
     parser.add_argument(
         "--skip-release",
         action="store_true",
@@ -94,26 +146,34 @@ def parse_args() -> argparse.Namespace:
 
 def main() -> int:
     args = parse_args()
+    skill = args.skill
+    skill_dir = REPO_ROOT / "skills" / skill
+    skill_prefix = f"skills/{skill}"
     rows: list[tuple[str, str]] = []
 
-    for path in REQUIRED_FILES:
+    required_files = REQUIRED_FILES + [
+        f"{skill_prefix}/{path}" for path in SKILL_REQUIRED_FILES[skill]
+    ]
+    for path in required_files:
         check(file_exists(path), "OK", f"required file exists: {path}", rows)
 
-    if file_exists("skills/high-density-resume/test-prompts.json"):
+    prompts_path = f"{skill_prefix}/test-prompts.json"
+    if file_exists(prompts_path):
         try:
-            prompts = json.loads(read("skills/high-density-resume/test-prompts.json"))
+            prompts = json.loads(read(prompts_path))
             check(isinstance(prompts, list) and len(prompts) >= 3, "OK", "skill test-prompts.json has at least 3 prompts", rows)
         except json.JSONDecodeError as exc:
             rows.append(("FAIL", f"test-prompts.json is invalid JSON: {exc}"))
 
-    if file_exists("skills/high-density-resume/SKILL.md"):
-        skill = read("skills/high-density-resume/SKILL.md")
-        for marker in ("## CHECKPOINTS", "## Failure Modes And Fallbacks", "## Risk-Action Blacklist"):
-            check(marker in skill, "OK", f"SKILL.md includes {marker}", rows)
+    skill_path = f"{skill_prefix}/SKILL.md"
+    if file_exists(skill_path):
+        skill_text = read(skill_path)
+        for marker in SKILL_MARKERS[skill]:
+            check(marker in skill_text, "OK", f"SKILL.md includes {marker}", rows)
         missing_refs = []
-        for match in re.finditer(r"`([^`]+)`", skill):
+        for match in re.finditer(r"`([^`]+)`", skill_text):
             ref = match.group(1)
-            if ref.startswith(("references/", "assets/", "scripts/")) and not (SKILL_DIR / ref).exists():
+            if ref.startswith(("references/", "assets/", "scripts/")) and not (skill_dir / ref).exists():
                 missing_refs.append(ref)
         check(not missing_refs, "OK", f"skill internal references resolve: {missing_refs or 'all ok'}", rows)
 
@@ -134,29 +194,34 @@ def main() -> int:
     else:
         rows.append(("FAIL", "no real support QR and no clear placeholder found"))
 
-    release_dir = None if args.skip_release else args.release_dir or latest_release_dir()
+    release_dir = (
+        None if args.skip_release else args.release_dir or latest_release_dir(skill)
+    )
     if release_dir is not None:
         release_dir = release_dir.expanduser().resolve()
     if args.skip_release:
         rows.append(("OK", "release folder checks skipped"))
     elif release_dir is None:
-        rows.append(("FAIL", "no dist/high-density-resume-v* release folder found"))
+        rows.append(("FAIL", f"no dist/{skill}-v* release folder found"))
     else:
         try:
             release_label = str(release_dir.relative_to(REPO_ROOT))
         except ValueError:
             release_label = str(release_dir)
         rows.append(("OK", f"latest release folder: {release_label}"))
-        for rel in REQUIRED_RELEASE_FILES:
+        required_release_files = list(COMMON_RELEASE_FILES)
+        if skill == DEFAULT_SKILL:
+            required_release_files.extend(HIGH_DENSITY_RELEASE_FILES)
+        for rel in required_release_files:
             check((release_dir / rel).exists(), "OK", f"release file exists: {rel}", rows)
-        zips = sorted(release_dir.glob("high-density-resume-skill-v*.zip"))
+        zips = sorted(release_dir.glob(f"{skill}-skill-v*.zip"))
         if not zips:
             rows.append(("FAIL", "release skill zip missing"))
         else:
             zip_path = zips[-1]
             with zipfile.ZipFile(zip_path) as archive:
                 names = set(archive.namelist())
-            for name in SKILL_ZIP_REQUIRED:
+            for name in SKILL_ZIP_REQUIRED[skill]:
                 check(name in names, "OK", f"skill zip contains {name}", rows)
 
     for level, message in rows:

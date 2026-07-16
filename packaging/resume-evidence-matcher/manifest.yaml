@@ -1,0 +1,36 @@
+id: resume-evidence-matcher
+name: Resume Evidence Matcher
+version: 1.0.0
+author: zhanfoguang
+license: MIT
+homepage: https://github.com/zhanfoguang/high-density-resume
+source: https://github.com/zhanfoguang/high-density-resume
+category: career
+tags:
+  - resume
+  - job-description
+  - job-matching
+  - career
+  - interview
+  - evidence
+  - skill-gap
+languages:
+  - zh
+  - en
+agents:
+  - Claude Code
+  - Codex
+  - OpenClaw-style agents
+  - SKILL.md-compatible agents
+entrypoint: SKILL.md
+description: >
+  Compare a plain-text or Markdown resume with a specific job description,
+  map every requirement to traceable evidence, calculate deterministic evidence
+  coverage, and produce safe resume rewrites, gaps, and interview risks.
+requirements:
+  python: ">=3.10"
+  third_party_dependencies: []
+privacy:
+  data_processing: local
+  network_required: false
+  stores_user_data: false

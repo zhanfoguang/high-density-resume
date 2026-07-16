@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Install the high-density-resume skill into common agent skill folders."""
+"""Install a skill from this repository into a local agent skill folder."""
 
 from __future__ import annotations
 
@@ -8,9 +8,9 @@ import shutil
 from pathlib import Path
 
 
-SKILL_NAME = "high-density-resume"
+DEFAULT_SKILL = "high-density-resume"
+SUPPORTED_SKILLS = (DEFAULT_SKILL, "resume-evidence-matcher")
 REPO_ROOT = Path(__file__).resolve().parents[1]
-SOURCE = REPO_ROOT / "skills" / SKILL_NAME
 
 
 def default_target_dir(target: str, project: Path | None) -> Path:
@@ -28,11 +28,12 @@ def default_target_dir(target: str, project: Path | None) -> Path:
     raise SystemExit(f"Unsupported target: {target}")
 
 
-def copy_skill(destination_parent: Path, force: bool) -> Path:
-    if not SOURCE.exists():
-        raise SystemExit(f"Skill source not found: {SOURCE}")
+def copy_skill(destination_parent: Path, skill: str, force: bool) -> Path:
+    source = REPO_ROOT / "skills" / skill
+    if not source.exists():
+        raise SystemExit(f"Skill source not found: {source}")
 
-    destination = destination_parent / SKILL_NAME
+    destination = destination_parent / skill
     if destination.exists():
         if not force:
             raise SystemExit(
@@ -43,13 +44,19 @@ def copy_skill(destination_parent: Path, force: bool) -> Path:
 
     destination_parent.mkdir(parents=True, exist_ok=True)
     ignore = shutil.ignore_patterns("__pycache__", "*.pyc", ".DS_Store")
-    shutil.copytree(SOURCE, destination, ignore=ignore)
+    shutil.copytree(source, destination, ignore=ignore)
     return destination
 
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="Install the high-density-resume skill for local agents."
+        description="Install a skill from this repository for a local agent."
+    )
+    parser.add_argument(
+        "--skill",
+        choices=SUPPORTED_SKILLS,
+        default=DEFAULT_SKILL,
+        help=f"Skill slug to install. Default: {DEFAULT_SKILL}.",
     )
     parser.add_argument(
         "--target",
@@ -84,8 +91,11 @@ def main() -> None:
     else:
         destination_parent = default_target_dir(args.target, args.project)
 
-    destination = copy_skill(destination_parent.expanduser().resolve(), args.force)
-    print(f"Installed {SKILL_NAME} to {destination}")
+    skill = args.skill.strip()
+    destination = copy_skill(
+        destination_parent.expanduser().resolve(), skill, args.force
+    )
+    print(f"Installed {skill} to {destination}")
 
 
 if __name__ == "__main__":
