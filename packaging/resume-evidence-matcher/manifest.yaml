@@ -14,19 +14,19 @@ tags:
   - interview
   - evidence
   - skill-gap
+  - resume-tailoring
+  - evidence-selection
 languages:
   - zh
   - en
 agents:
-  - Claude Code
-  - Codex
-  - OpenClaw-style agents
   - SKILL.md-compatible agents
 entrypoint: SKILL.md
 description: >
   Compare a plain-text or Markdown resume with a specific job description,
   map every requirement to traceable evidence, calculate deterministic evidence
-  coverage, and produce safe resume rewrites, gaps, and interview risks.
+  coverage, rank evidence for limited resume space, and produce a targeted resume,
+  interview storyline, gaps, and minimum proof-building tasks.
 requirements:
   python: ">=3.10"
   third_party_dependencies: []

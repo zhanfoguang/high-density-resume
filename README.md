@@ -14,14 +14,14 @@
 - 同时照顾 HR 扫读、ATS/机器关键词、岗位价值和面试追问。
 - 支持从零采矿、单段经历拆解、已有简历审查、双 AI 交叉审稿和面试风险检查。
 - 对大一大二、项目少或觉得“没东西可写”的用户，从课程、社团微任务、帮助他人、AI 辅助学习和非典型技能里挖掘真实证据。
-- 面向具体 JD 建立“岗位要求 → 经历证据 → 安全表述”链路，计算可复算的材料证据覆盖率，区分材料缺口与能力缺口。
+- 面向具体 JD 建立“证据库 → 要求匹配 → 优势选择 → 简历编排 → 面试与补证”链路，计算可复算的材料覆盖率和素材优先级。
 
 ## Choose A Skill
 
 | 你的任务 | 使用的 Skill |
 | --- | --- |
 | 没有明确 JD，想从零挖经历、改写或审查简历 | [`high-density-resume`](skills/high-density-resume/SKILL.md) |
-| 已有具体 JD，想做证据匹配、定制投递和面试风险检查 | [`resume-evidence-matcher`](skills/resume-evidence-matcher/SKILL.md) |
+| 已有具体 JD，想做证据匹配、多经历取舍、岗位定制和面试准备 | [`resume-evidence-matcher`](skills/resume-evidence-matcher/SKILL.md) |
 
 ## Start Here
 
@@ -34,7 +34,7 @@
 | 想看改写效果 | [完整改写示例](examples/full-walkthrough.md) / [Before & After](examples/before-after.md) |
 | 想检查机器筛选和 HR 扫读 | [HR 与机器筛选友好规则](docs/hr-machine-screening.md) |
 | 想评估当前简历 | [评分表](docs/rubric.md) / [压力测试清单](templates/review-checklist.md) |
-| 已有具体 JD，想诊断证据覆盖 | [`resume-evidence-matcher`](skills/resume-evidence-matcher/SKILL.md) |
+| 已有具体 JD，想诊断证据覆盖并生成岗位优势版简历 | [`resume-evidence-matcher`](skills/resume-evidence-matcher/SKILL.md) |
 
 如果你有看似“不相关”但能体现个人特质的经历，参考 [Distinctive Signals](examples/distinctive-signals.md)，判断它是否能证明社交信任、助人倾向、团队融入或跨领域迁移。
 
@@ -95,7 +95,7 @@ python3 tools/build_release.py --version 1.0.0
 构建 JD 证据匹配 Skill：
 
 ```bash
-python3 tools/build_release.py --skill resume-evidence-matcher --version 1.0.0
+python3 tools/build_release.py --skill resume-evidence-matcher --version 1.1.0
 ```
 
 生成内容默认位于：
@@ -112,7 +112,7 @@ dist/high-density-resume-v1.0.0/
 
 其中 zip 是可上传平台的 Skill 包，其他文件用于平台介绍页、审核材料和发布记录。
 
-选择 `resume-evidence-matcher` 时，对应输出位于 `dist/resume-evidence-matcher-v1.0.0/`。
+选择 `resume-evidence-matcher` 时，对应输出位于 `dist/resume-evidence-matcher-v1.1.0/`。
 
 发布前可运行自检：
 
@@ -213,7 +213,6 @@ python3 tools/check_launch_ready.py --skill resume-evidence-matcher --skip-relea
 │   │   └── test-prompts.json
 │   └── resume-evidence-matcher/
 │       ├── SKILL.md
-│       ├── agents/openai.yaml
 │       ├── assets/
 │       ├── references/
 │       ├── scripts/

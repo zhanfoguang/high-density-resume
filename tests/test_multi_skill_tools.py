@@ -117,11 +117,22 @@ class MultiSkillToolTests(unittest.TestCase):
             self.assertTrue(zip_path.exists())
             with zipfile.ZipFile(zip_path) as archive:
                 names = set(archive.namelist())
+                text_entries = "\n".join(
+                    archive.read(name).decode("utf-8")
+                    for name in names
+                    if name.endswith((".md", ".yaml", ".json", ".py"))
+                )
             self.assertIn("SKILL.md", names)
             self.assertIn("scripts/calculate_coverage.py", names)
+            self.assertIn("scripts/select_resume_content.py", names)
             self.assertIn("references/evidence-chain.md", names)
+            self.assertIn("references/selection-and-layout.md", names)
+            self.assertIn("references/interview-and-proof-plan.md", names)
+            self.assertIn("assets/evidence-inventory-template.md", names)
             self.assertIn("manifest.yaml", names)
             self.assertIn("LICENSE", names)
+            self.assertFalse(any("openai" in name.lower() for name in names))
+            self.assertNotIn("openai", text_entries.lower())
             release_dir = zip_path.parent
             for filename in (
                 "listing.zh.md",

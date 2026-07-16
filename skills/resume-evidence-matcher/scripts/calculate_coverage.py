@@ -13,6 +13,7 @@ from typing import Any
 
 IMPORTANCE_WEIGHTS = {"must": 2.0, "preferred": 1.0}
 STATUS_WEIGHTS = {"direct": 1.0, "transferable": 0.6, "partial": 0.3, "gap": 0.0}
+DEFENSIBILITY_VALUES = {"ready", "needs-detail", "conflict"}
 
 
 class InputError(ValueError):
@@ -47,6 +48,11 @@ def validate_evidence(data: dict[str, Any]) -> set[str]:
             raise InputError(f"{label}.id must be a non-empty string")
         if evidence_id in evidence_ids:
             raise InputError(f"duplicate evidence id: {evidence_id}")
+        defensibility = item.get("defensibility", "ready")
+        if defensibility not in DEFENSIBILITY_VALUES:
+            raise InputError(
+                f"{label}.defensibility must be one of: ready, needs-detail, conflict"
+            )
         evidence_ids.add(evidence_id)
     return evidence_ids
 
@@ -60,6 +66,9 @@ def validate_requirements(
 
     seen_ids: set[str] = set()
     validated: list[dict[str, Any]] = []
+    defensibility_by_id = {
+        item["id"]: item.get("defensibility", "ready") for item in data["evidence"]
+    }
 
     for index, item in enumerate(requirements, start=1):
         label = f"requirements[{index - 1}]"
@@ -93,6 +102,25 @@ def validate_requirements(
         if unknown_evidence:
             raise InputError(
                 f"{label} cites unknown evidence ids: {', '.join(unknown_evidence)}"
+            )
+        conflict_evidence = sorted(
+            evidence_id
+            for evidence_id in cited_evidence_ids
+            if defensibility_by_id[evidence_id] == "conflict"
+        )
+        if conflict_evidence:
+            raise InputError(
+                f"{label} cites conflict evidence ids: {', '.join(conflict_evidence)}"
+            )
+        needs_detail_evidence = sorted(
+            evidence_id
+            for evidence_id in cited_evidence_ids
+            if defensibility_by_id[evidence_id] == "needs-detail"
+        )
+        if status in {"direct", "transferable"} and needs_detail_evidence:
+            raise InputError(
+                f"{label} with {status} status cites needs-detail evidence ids: "
+                f"{', '.join(needs_detail_evidence)}; use partial or confirm the facts"
             )
 
         seen_ids.add(requirement_id)

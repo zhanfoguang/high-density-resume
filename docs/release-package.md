@@ -11,7 +11,7 @@ python3 tools/build_release.py --version 1.0.0
 The default is `high-density-resume`. Build the JD evidence matcher with:
 
 ```bash
-python3 tools/build_release.py --skill resume-evidence-matcher --version 1.0.0
+python3 tools/build_release.py --skill resume-evidence-matcher --version 1.1.0
 ```
 
 Output:
@@ -31,7 +31,6 @@ The zip contains:
 
 ```text
 SKILL.md
-agents/openai.yaml
 assets/
 references/
 scripts/
@@ -39,7 +38,12 @@ manifest.yaml
 LICENSE
 ```
 
-For `high-density-resume`, `references/` includes user-entry workflow routing, the core method, Before / After patterns, and the optional dual-AI review workflow. For `resume-evidence-matcher`, it includes the evidence-chain method, matching rubric, and employment-safety boundaries.
+The `high-density-resume` package also includes `agents/openai.yaml` for its
+platform-specific interface metadata. The competition-facing
+`resume-evidence-matcher` package omits platform-named metadata files for
+registry neutrality.
+
+For `high-density-resume`, `references/` includes user-entry workflow routing, the core method, Before / After patterns, and the optional dual-AI review workflow. For `resume-evidence-matcher`, it includes the evidence-chain method, matching rubric, evidence selection and layout rules, interview/proof planning, and employment-safety boundaries.
 
 ## What To Upload
 

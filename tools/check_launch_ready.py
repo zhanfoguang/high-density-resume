@@ -39,7 +39,11 @@ SKILL_REQUIRED_FILES = {
         "SKILL.md",
         "test-prompts.json",
         "scripts/calculate_coverage.py",
+        "scripts/select_resume_content.py",
+        "assets/evidence-inventory-template.md",
         "references/evidence-chain.md",
+        "references/selection-and-layout.md",
+        "references/interview-and-proof-plan.md",
         "references/matching-rubric.md",
         "references/safety-boundaries.md",
     ],
@@ -54,6 +58,8 @@ SKILL_MARKERS = {
     ),
     "resume-evidence-matcher": (
         "🔴 CHECKPOINT",
+        "### 6. 选择岗位优势并编排素材",
+        "### 8. 生成面试主线与补证计划",
         "## 反例与黑名单",
         "## 异常与回退",
     ),
@@ -94,10 +100,19 @@ SKILL_ZIP_REQUIRED = {
         "LICENSE",
         "test-prompts.json",
         "scripts/calculate_coverage.py",
+        "scripts/select_resume_content.py",
+        "assets/evidence-inventory-template.md",
         "references/evidence-chain.md",
+        "references/selection-and-layout.md",
+        "references/interview-and-proof-plan.md",
         "references/matching-rubric.md",
         "references/safety-boundaries.md",
     ],
+}
+
+
+REGISTRY_FORBIDDEN_TOKENS = {
+    "resume-evidence-matcher": ("openai",),
 }
 
 
@@ -221,8 +236,26 @@ def main() -> int:
             zip_path = zips[-1]
             with zipfile.ZipFile(zip_path) as archive:
                 names = set(archive.namelist())
+                text_entries = "\n".join(
+                    archive.read(name).decode("utf-8", errors="ignore")
+                    for name in names
+                    if name.endswith((".md", ".yaml", ".yml", ".json", ".py"))
+                ).lower()
             for name in SKILL_ZIP_REQUIRED[skill]:
                 check(name in names, "OK", f"skill zip contains {name}", rows)
+            for token in REGISTRY_FORBIDDEN_TOKENS.get(skill, ()):
+                check(
+                    not any(token in name.lower() for name in names),
+                    "OK",
+                    f"skill zip paths exclude registry-forbidden token: {token}",
+                    rows,
+                )
+                check(
+                    token not in text_entries,
+                    "OK",
+                    f"skill zip text excludes registry-forbidden token: {token}",
+                    rows,
+                )
 
     for level, message in rows:
         print(f"[{level}] {message}")
