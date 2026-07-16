@@ -9,6 +9,7 @@ Release date: {{DATE}}
 - Added role-advantage selection, first-third layout rules, and multi-JD base/variant output.
 - Added evidence-backed interview storylines and minimum proof tasks for confirmed practice gaps.
 - Added cross-script hard gates so conflicting evidence cannot inflate coverage and unconfirmed evidence cannot be scored above partial.
+- Replaced user-content Markdown tables with labeled record lists and added explicit field rendering for pipes, line breaks, HTML characters, and formula-like line prefixes.
 - Preserved deterministic coverage, grounded rewriting, safe fallbacks, and employment-safety boundaries.
 
 ## Compatibility

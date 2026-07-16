@@ -5,6 +5,8 @@
 - [ ] `SKILL.md` exists at the package root.
 - [ ] Frontmatter contains only `name` and `description`.
 - [ ] All referenced assets, references, and scripts resolve.
+- [ ] User-controlled and derived fields use labeled list records, not Markdown tables.
+- [ ] Field rendering covers pipes, line breaks, HTML characters, and `= + - @` at the start of every logical line.
 - [ ] `python3 scripts/calculate_coverage.py` succeeds on the sample mapping.
 - [ ] `python3 scripts/select_resume_content.py` produces core, support, compress, and hide decisions.
 - [ ] Unit tests and test prompts cover normal, missing-input, and hostile-input paths.
@@ -24,6 +26,7 @@
 - [ ] Unmatched but truthful distinctive evidence is retained at low priority instead of being permanently deleted.
 - [ ] `needs-detail` and `conflict` evidence never enters the final resume or assumed interview answers.
 - [ ] Narrow user requests return only the requested modules plus necessary evidence and limitations.
+- [ ] Markdown safety prefixes and entities survive copying and are not decoded before delivery.
 
 ## Safety
 

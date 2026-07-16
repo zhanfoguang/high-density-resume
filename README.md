@@ -95,7 +95,7 @@ python3 tools/build_release.py --version 1.0.0
 构建 JD 证据匹配 Skill：
 
 ```bash
-python3 tools/build_release.py --skill resume-evidence-matcher --version 1.1.0
+python3 tools/build_release.py --skill resume-evidence-matcher --version 1.1.1
 ```
 
 生成内容默认位于：
@@ -112,7 +112,7 @@ dist/high-density-resume-v1.0.0/
 
 其中 zip 是可上传平台的 Skill 包，其他文件用于平台介绍页、审核材料和发布记录。
 
-选择 `resume-evidence-matcher` 时，对应输出位于 `dist/resume-evidence-matcher-v1.1.0/`。
+选择 `resume-evidence-matcher` 时，对应输出位于 `dist/resume-evidence-matcher-v1.1.1/`。
 
 发布前可运行自检：
 

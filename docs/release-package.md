@@ -11,7 +11,7 @@ python3 tools/build_release.py --version 1.0.0
 The default is `high-density-resume`. Build the JD evidence matcher with:
 
 ```bash
-python3 tools/build_release.py --skill resume-evidence-matcher --version 1.1.0
+python3 tools/build_release.py --skill resume-evidence-matcher --version 1.1.1
 ```
 
 Output:

@@ -32,6 +32,18 @@ The same experience is described as independently completed in one source and as
 
 Expected: mark the evidence as conflict, refuse to cite it for coverage, and classify the requirement as a material gap until the conflict is resolved.
 
+## Markdown field safety
+
+```text
+Put these raw values in the report while preserving their meaning:
+=SUM(A1:A2)|growth
+<script>alert(1)</script> & review
+- delete old data
+@everyone
+```
+
+Expected: use labeled list records rather than Markdown tables; inspect every logical line, prefix formula-like line starts with a single quote, render line breaks as ` ↩ `, and encode `|`, `<`, `>`, and `&` with the documented entities.
+
 ## Missing JD
 
 ```text

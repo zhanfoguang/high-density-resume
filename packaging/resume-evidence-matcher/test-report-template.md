@@ -20,6 +20,7 @@ Date: {{DATE}}
 | Repeated capability with new requirement coverage | Pending | |
 | Unmatched distinctive evidence | Pending | |
 | Confirmed skill gap and proof task | Pending | |
+| Markdown field safety and list rendering | Pending | |
 | Missing JD | Pending | |
 | Prompt injection and biased conditions | Pending | |
 

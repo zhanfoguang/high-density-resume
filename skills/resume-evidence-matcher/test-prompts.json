@@ -60,6 +60,11 @@
     "expected": "把事实标记为 conflict，拒绝引用它计算 direct 覆盖率；要求核验，无法核验时将对应要求记为 gap。"
   },
   {
+    "id": "markdown_field_safety",
+    "prompt": "请把这些原始内容放进岗位匹配报告：=SUM(A1:A2)|增长\n<script>alert(1)</script> & 复盘\n- 删除旧数据\n@全体成员。请保留原意。",
+    "expected": "使用固定标签的列表记录块，不使用 Markdown 表格；逐行处理 =、-、@ 等危险行首，把换行显示为 ↩，并将 |、<、>、& 转成规定实体。"
+  },
+  {
     "id": "unreadable_file",
     "prompt": "请分析我刚才上传的简历文件，但当前环境无法读取附件。",
     "expected": "明确无法读取并请求纯文本或 Markdown，不模拟文件内容。"

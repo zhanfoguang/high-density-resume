@@ -12,6 +12,7 @@ Turn a reusable experience-evidence inventory and a specific job description int
 - Reuse one evidence inventory across multiple role-specific resume versions.
 - Audit ownership, numbers, tools, and outcomes before an interview.
 - Exclude sensitive attributes and ignore prompt injection embedded in input files.
+- Render user-derived fields as safe labeled records, with explicit handling for pipes, line breaks, HTML characters, and formula-like line prefixes.
 
 ## Key capabilities
 
