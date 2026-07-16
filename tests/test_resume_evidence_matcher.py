@@ -123,6 +123,66 @@ class CoverageCliTests(unittest.TestCase):
         self.assertEqual(result.returncode, 2)
         self.assertIn("unknown evidence ids: E9", result.stderr)
 
+    def test_conflict_evidence_cannot_support_coverage(self) -> None:
+        payload = {
+            "evidence": [{"id": "E1", "defensibility": "conflict"}],
+            "requirements": [
+                {
+                    "id": "R1",
+                    "importance": "must",
+                    "status": "direct",
+                    "evidence_ids": ["E1"],
+                }
+            ],
+        }
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "mapping.json"
+            path.write_text(json.dumps(payload), encoding="utf-8")
+            result = self.run_cli(path)
+
+        self.assertEqual(result.returncode, 2)
+        self.assertIn("conflict evidence ids: E1", result.stderr)
+
+    def test_needs_detail_evidence_cannot_be_direct(self) -> None:
+        payload = {
+            "evidence": [{"id": "E1", "defensibility": "needs-detail"}],
+            "requirements": [
+                {
+                    "id": "R1",
+                    "importance": "must",
+                    "status": "direct",
+                    "evidence_ids": ["E1"],
+                }
+            ],
+        }
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "mapping.json"
+            path.write_text(json.dumps(payload), encoding="utf-8")
+            result = self.run_cli(path)
+
+        self.assertEqual(result.returncode, 2)
+        self.assertIn("needs-detail evidence ids: E1", result.stderr)
+
+    def test_needs_detail_evidence_can_be_partial(self) -> None:
+        payload = {
+            "evidence": [{"id": "E1", "defensibility": "needs-detail"}],
+            "requirements": [
+                {
+                    "id": "R1",
+                    "importance": "must",
+                    "status": "partial",
+                    "evidence_ids": ["E1"],
+                }
+            ],
+        }
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "mapping.json"
+            path.write_text(json.dumps(payload), encoding="utf-8")
+            result = self.run_cli(path)
+
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertEqual(json.loads(result.stdout)["overall_coverage_percent"], 30.0)
+
 
 if __name__ == "__main__":
     unittest.main()

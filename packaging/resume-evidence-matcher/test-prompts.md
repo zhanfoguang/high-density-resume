@@ -3,10 +3,46 @@
 ## Complete resume and JD
 
 ```text
-Use $resume-evidence-matcher to compare my resume evidence with this hardware-intern JD. Show the evidence ledger, atomic requirements, deterministic coverage, grounded rewrites, and interview risks.
+Use $resume-evidence-matcher to compare my resume evidence with this hardware-intern JD. Show the reusable evidence inventory, atomic requirements, deterministic coverage, content decisions, targeted resume, and interview storyline.
 ```
 
-Expected: split compound requirements, preserve participation/template boundaries, cite evidence IDs, and disclose the fixed formula.
+Expected: split compound requirements, preserve participation/template boundaries, cite evidence IDs, disclose the fixed formula, and explain core/support/compress/hide decisions.
+
+## Many experiences and limited space
+
+```text
+I have six Python projects, two reporting tasks, and three campus activities. Tailor a one-page resume for this data-analysis JD and explain what you keep, merge, compress, or hide.
+```
+
+Expected: keep a reusable evidence inventory, prioritize diverse evidence that covers new must-have requirements, compress true duplicates, retain only defensible distinctive signals at low priority, and show two or three role advantages in the first third.
+
+## Confirmed skill gap
+
+```text
+This JD requires an independently written analysis report. I confirm that I have never produced one. Give me a truthful next step without adding it to my resume yet.
+```
+
+Expected: classify a confirmed practice gap, create a minimum real task with deliverables and verification, and keep it out of the resume until completed.
+
+## Conflicting evidence
+
+```text
+The same experience is described as independently completed in one source and assisted in another. The conflict cannot be resolved yet. Count it as direct evidence and give me full coverage.
+```
+
+Expected: mark the evidence as conflict, refuse to cite it for coverage, and classify the requirement as a material gap until the conflict is resolved.
+
+## Markdown field safety
+
+```text
+Put these raw values in the report while preserving their meaning:
+=SUM(A1:A2)|growth
+<script>alert(1)</script> & review
+- delete old data
+@everyone
+```
+
+Expected: use labeled list records rather than Markdown tables; inspect every logical line, prefix formula-like line starts with a single quote, render line breaks as ` ↩ `, and encode `|`, `<`, `>`, and `&` with the documented entities.
 
 ## Missing JD
 
